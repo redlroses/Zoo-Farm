@@ -1,24 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using CodeBase.Infrastructure.AssetManagement;
+using CodeBase.Logic;
 using CodeBase.Logic.Items;
 using CodeBase.Logic.Movement;
 using CodeBase.Logic.Player;
 using CodeBase.Services.Input;
-using CodeBase.StaticData.Storable;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
+        private const string CarrotName = "Carrot";
+
         private readonly IAssetProvider _assets;
         private readonly IAssetProvider _assetProvider;
         private readonly IPlayerInputService _inputService;
+
+        private Dictionary<Type, Func<Item>> _items;
 
         public GameFactory(IAssetProvider assets, IPlayerInputService inputService)
         {
             _assets = assets;
             _inputService = inputService;
+            ConfigureItems();
         }
 
         public void Cleanup() { }
@@ -32,12 +38,8 @@ namespace CodeBase.Infrastructure.Factory
             return hero;
         }
 
-        public IItem CreateItem(StorableType data) =>
-            data switch
-            {
-                StorableType.None => throw new Exception("Storable type is not specified"),
-                _ => new Item(data)
-            };
+        public Item CreateItem<TItem>() =>
+            _items[typeof(TItem)].Invoke();
 
         public GameObject CreateHud()
         {
@@ -47,5 +49,11 @@ namespace CodeBase.Infrastructure.Factory
 
         private void FollowCamera(Transform to) =>
             Camera.main.GetComponentInParent<CameraFollower>().Follow(to);
+
+        private void ConfigureItems() =>
+            _items = new Dictionary<Type, Func<Item>>
+            {
+                [typeof(Carrot)] = () => new Carrot(CarrotName),
+            };
     }
 }

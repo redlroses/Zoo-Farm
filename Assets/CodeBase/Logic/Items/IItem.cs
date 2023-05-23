@@ -1,7 +1,4 @@
-﻿using CodeBase.StaticData.Storable;
-using UnityEngine;
-
-namespace CodeBase.Logic.Items
+﻿namespace CodeBase.Logic.Items
 {
     public interface IItem
     {

@@ -1,4 +1,5 @@
-﻿using CodeBase.Logic.Items;
+﻿using System;
+using CodeBase.Logic.Items;
 using NTC.Global.System;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace CodeBase.Logic.Сollectible
     {
         public IItem Item { get; private set; }
 
-        public void Construct(int id, IItem item) =>
+        public void Construct(IItem item) =>
             Item = item;
 
         public void Disable() =>

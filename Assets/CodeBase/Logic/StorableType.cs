@@ -1,12 +1,8 @@
-﻿namespace CodeBase.StaticData.Storable
+﻿namespace CodeBase.Logic
 {
     public enum StorableType : byte
     {
         None,
-        Compass,
-        GreenKey,
-        RedKey,
-        BlueKey,
-        RgbKey
+        MoneyPack,
     }
 }

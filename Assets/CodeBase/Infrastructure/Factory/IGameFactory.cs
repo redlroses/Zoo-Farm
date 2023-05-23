@@ -1,6 +1,5 @@
 ﻿using CodeBase.Logic.Items;
 using CodeBase.Services;
-using CodeBase.StaticData.Storable;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.Factory
@@ -10,6 +9,6 @@ namespace CodeBase.Infrastructure.Factory
         void Cleanup();
         GameObject CreateHero(Vector3 at);
         GameObject CreateHud();
-        IItem CreateItem(StorableType itemType);
+        Item CreateItem<TItem>();
     }
 }

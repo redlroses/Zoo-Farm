@@ -1,13 +1,10 @@
-﻿using CodeBase.StaticData.Storable;
-using UnityEngine;
-
-namespace CodeBase.Logic.Items
+﻿namespace CodeBase.Logic.Items
 {
-    public class Item : IItem
+    public abstract class Item
     {
-        public StorableType ItemType { get; }
+        public string Name { get; }
 
-        public Item(StorableType itemType) =>
-            ItemType = itemType;
+        public Item(string name) =>
+            Name = name;
     }
 }
