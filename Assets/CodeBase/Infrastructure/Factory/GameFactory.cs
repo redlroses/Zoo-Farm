@@ -6,6 +6,7 @@ using CodeBase.Logic.Items;
 using CodeBase.Logic.Movement;
 using CodeBase.Logic.Player;
 using CodeBase.Services.Input;
+using NTC.Global.System;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.Factory
@@ -32,6 +33,7 @@ namespace CodeBase.Infrastructure.Factory
         public GameObject CreateHero(Vector3 at)
         {
             GameObject hero = _assets.Instantiate(AssetPath.HeroPath, at);
+            hero.Enable();
             hero.GetComponent<Hero>().Construct(_inputService);
             hero.GetComponent<HeroMover>().Construct(_inputService);
             FollowCamera(hero.transform);
