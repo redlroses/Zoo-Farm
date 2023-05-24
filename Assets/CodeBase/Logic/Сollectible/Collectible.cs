@@ -1,5 +1,4 @@
-﻿using System;
-using CodeBase.Logic.Items;
+﻿using CodeBase.Logic.Items;
 using NTC.Global.System;
 using UnityEngine;
 

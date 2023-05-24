@@ -1,20 +1,33 @@
-﻿using UnityEngine;
+﻿using NTC.Global.Cache;
+using UnityEngine;
 
 namespace CodeBase.Logic.Observer
 {
-    public abstract class ObserverTarget<TObserver, TTarget> : MonoBehaviour where TObserver : ITriggerObserver<TTarget>
+    [RequireComponent(typeof(TriggerObserver))]
+    public abstract class ObserverTarget<TTarget, TObserver> : MonoCache where TObserver : ITriggerObserverCommon
     {
-        [SerializeField] private TObserver _observer;
+        protected TObserver Observer;
 
         private void Awake() =>
-            _observer ??= GetComponent<TObserver>();
+            GetObserver();
 
-        private void OnEnable() =>
-            _observer.Entered += OnTriggerObserverEntered;
+        protected override void OnEnabled() =>
+            Observer.Entered += OnTriggerObserverEntered;
 
-        private void OnDisable() =>
-            _observer.Entered -= OnTriggerObserverEntered;
+        protected override void OnDisabled() =>
+            Observer.Entered -= OnTriggerObserverEntered;
 
-        protected abstract void OnTriggerObserverEntered(TTarget inventory);
+        protected abstract void OnTargetEntered(TTarget _);
+
+        protected virtual void GetObserver() =>
+            Observer ??= GetComponent<TObserver>();
+
+        private void OnTriggerObserverEntered(Collider other)
+        {
+            if (other.TryGetComponent(out TTarget target))
+            {
+                OnTargetEntered(target);
+            }
+        }
     }
 }

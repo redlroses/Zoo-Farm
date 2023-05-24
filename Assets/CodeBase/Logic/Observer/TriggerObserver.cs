@@ -3,18 +3,11 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Observer
 {
-    public class TriggerObserver<TTarget> : MonoBehaviour, ITriggerObserver<TTarget>
+    public class TriggerObserver : MonoBehaviour, ITriggerObserverCommon
     {
-        public event Action<TTarget> Entered;
+        public event Action<Collider> Entered = c => { };
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent(out TTarget collectible) == false)
-            {
-                return;
-            }
-
-            Entered?.Invoke(collectible);
-        }
+        private void OnTriggerEnter(Collider other) =>
+            Entered?.Invoke(other);
     }
 }
