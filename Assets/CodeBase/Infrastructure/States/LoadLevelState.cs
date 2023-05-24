@@ -1,6 +1,7 @@
 ﻿using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic;
 using CodeBase.Logic.Builders;
+using CodeBase.Logic.Movement;
 using CodeBase.Logic.Player;
 using CodeBase.Logic.Spawners;
 using CodeBase.Services.Input;
@@ -14,11 +15,6 @@ namespace CodeBase.Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
     {
-        private readonly Vector3 _heroDefaultPosition = new Vector3(42f, 0, 42f);
-        private readonly Vector3 _moneySpawnerDefaultPosition = new Vector3(42f, 0, 63f);
-        private readonly Vector3 _rabbitFieldBuilderDefaultPosition = new Vector3(48f, 0, 50f);
-        private readonly Vector3 _carrotFieldBuilderDefaultPosition = new Vector3(37f, 0, 52f);
-
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly IGameFactory _gameFactory;
@@ -65,7 +61,14 @@ namespace CodeBase.Infrastructure.States
 
         private void InitCarrotField()
         {
-            GameObject carrotField = _gameFactory.CreateCarrotSField(_staticDataService.LocationFor(LocationKey.CarrotField));
+            GameObject carrotField =
+                _gameFactory.CreateCarrotSField(_staticDataService.LocationFor(LocationKey.CarrotField));
+
+            foreach (Builder builder in carrotField.GetComponentsInChildren<Builder>())
+                builder.Construct(_gameFactory);
+
+            foreach (Builder builder in carrotField.GetComponentsInChildren<Builder>())
+                builder.Construct(_gameFactory);
         }
 
         private void InitRabbitFieldBuilder()
@@ -84,13 +87,13 @@ namespace CodeBase.Infrastructure.States
             moneySpawner.Spawn();
         }
 
-        private Vector3 GetHeroPosition() =>
-            _heroDefaultPosition;
-
         private GameObject InitHero()
         {
-            Vector3 heroPosition = GetHeroPosition();
             GameObject hero = _gameFactory.CreateHero(_staticDataService.LocationFor(LocationKey.Hero));
+            hero.Enable();
+            hero.GetComponent<Hero>().Construct(_playerInputService);
+            hero.GetComponent<HeroMover>().Construct(_playerInputService);
+            FollowCamera(hero.transform);
             return hero;
         }
 
@@ -101,5 +104,8 @@ namespace CodeBase.Infrastructure.States
             hud.GetComponent<Canvas>().worldCamera = Camera.main;
             hud.GetComponentInChildren<WalletView>().Construct(hero.GetComponentInChildren<HeroWallet>().Wallet);
         }
+
+        private void FollowCamera(Transform to) =>
+            Camera.main.GetComponentInParent<CameraFollower>().Follow(to);
     }
 }

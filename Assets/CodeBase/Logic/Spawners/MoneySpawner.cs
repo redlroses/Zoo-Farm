@@ -20,7 +20,7 @@ namespace CodeBase.Logic.Spawners
         {
             foreach (Transform spawnPlace in _spawnPlaces)
             {
-                GameObject moneyPack = _gameFactory.CreateCollectible<MoneyPack>(spawnPlace.position);
+                GameObject moneyPack = _gameFactory.CreateMoneyPack(spawnPlace.position);
                 moneyPack.transform.SetParent(transform);
             }
         }

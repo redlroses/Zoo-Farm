@@ -11,7 +11,12 @@ namespace CodeBase.Logic.Сollectible
         public void Construct(IItem item) =>
             Item = item;
 
-        public void Disable() =>
+        public void Collect()
+        {
+            OnCollected();
             gameObject.Disable();
+        }
+
+        protected virtual void OnCollected() { }
     }
 }

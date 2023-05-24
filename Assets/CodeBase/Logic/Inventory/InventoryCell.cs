@@ -5,8 +5,8 @@ namespace CodeBase.Logic.Inventory
 {
     public sealed class InventoryCell : IReadOnlyInventoryCell
     {
-        [field: SerializeField] public int Count { get; private set; }
-        [field: SerializeField] public IItem Item { get; }
+        public int Count { get; private set; }
+        public IItem Item { get; }
 
         public bool IsEmpty => Count <= 0;
 

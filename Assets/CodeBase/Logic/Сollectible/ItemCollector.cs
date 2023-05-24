@@ -15,11 +15,14 @@ namespace CodeBase.Logic.Сollectible
             if (collectible is MoneyPack moneyPack)
             {
                 _heroWallet.Wallet.Replanish(moneyPack.AmountMoney);
+                collectible.Collect();
+                return;
             }
 
-            // _heroInventory.Inventory.Add(collectible.Item);
-            collectible.Disable();
-            Debug.Log("collectible picked");
+            if (_heroInventory.Inventory.TruAdd(collectible.Item))
+            {
+                collectible.Collect();
+            }
         }
     }
 }

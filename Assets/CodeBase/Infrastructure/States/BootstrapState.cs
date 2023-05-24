@@ -37,7 +37,6 @@ namespace CodeBase.Infrastructure.States
             _services.RegisterSingle<IGameFactory>(
                 new GameFactory(
                     _services.Single<IAssetProvider>(),
-                    _services.Single<IPlayerInputService>(),
                     _services.Single<IStaticDataService>()));
         }
 

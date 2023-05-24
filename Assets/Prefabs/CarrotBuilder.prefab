@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5686905882535269262}
   - component: {fileID: 4056049208611975122}
   - component: {fileID: 7350840374962414252}
+  - component: {fileID: 1424220634700208399}
   m_Layer: 0
   m_Name: CarrotBuilder
   m_TagString: Untagged
@@ -74,6 +75,20 @@ MonoBehaviour:
   _interactionCost: 10
   _coinsPerTick: 1
   _tickDuration: 0.1
+--- !u!114 &1424220634700208399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505170863361765677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cdaa8eac6a450c845e87a584caecf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionzone: {fileID: 7350840374962414252}
+  _spawnPoint: {fileID: 0}
 --- !u!1001 &5968480935863188985
 PrefabInstance:
   m_ObjectHideFlags: 0

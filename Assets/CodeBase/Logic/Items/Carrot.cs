@@ -1,6 +1,7 @@
 ﻿namespace CodeBase.Logic.Items
 {
-    class Carrot : IItem
+    public class Carrot : IItem
     {
+        public ItemType Type { get; } = ItemType.Carrot;
     }
 }
