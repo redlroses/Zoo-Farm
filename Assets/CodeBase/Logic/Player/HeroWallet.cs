@@ -1,5 +1,6 @@
 ﻿using CodeBase.Logic.Wallet;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace CodeBase.Logic.Player
 {
@@ -10,7 +11,13 @@ namespace CodeBase.Logic.Player
         private void Awake()
         {
             Wallet = new Wallet.Wallet();
-            Wallet.Changed += i => print($"Wallet account is {i} money");
+
+            Debug.Log("Press \"X\" for spend 10 coins");
+
+            InputAction input = new InputAction("Press X", InputActionType.Button, "<Keyboard>/x");
+            input.started += context => Wallet.TrySpend(10);
+
+            input.Enable();
         }
     }
 }

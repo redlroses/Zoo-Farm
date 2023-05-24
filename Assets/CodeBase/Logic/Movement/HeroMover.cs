@@ -11,8 +11,12 @@ namespace CodeBase.Logic.Movement
         public void Construct(IInput input) =>
             _input = input;
 
-        protected override Vector3 GetMoveDirection() =>
-            _input.MoveDirection.AddY(0);
+        protected override Vector3 GetMoveDirection()
+        {
+            var cameraRotation = Camera.main.transform.parent.transform;
+            var compensatedQuaternion = cameraRotation.TransformVector(_input.MoveDirection.AddY(0));
+            return compensatedQuaternion;
+        }
 
         protected override Quaternion GetLookRotation() =>
             Quaternion.LookRotation(Rigidbody.velocity.ChangeY(0));
