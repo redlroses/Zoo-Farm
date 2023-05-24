@@ -24,19 +24,19 @@ namespace CodeBase.Logic
             _callBack = action;
         }
 
-        public void Resume() =>
-            enabled = _isEnabled;
-
-        public void Pause()
-        {
-            _isEnabled = enabled;
+        public void Pause() =>
             enabled = false;
-        }
 
         public void Play() =>
             enabled = true;
 
-        public void Restart() =>
+        public void Restart()
+        {
+            _timer.Reset();
+            enabled = true;
+        }
+
+        public void Reset() =>
             _timer.Reset();
 
         private void OnTimeIsOn()

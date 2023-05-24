@@ -7,6 +7,7 @@ using CodeBase.Logic.Player;
 using CodeBase.Logic.Сollectible;
 using CodeBase.Services.Input;
 using CodeBase.Services.StaticData;
+using CodeBase.StaticData;
 using NTC.Global.System;
 using UnityEngine;
 
@@ -31,9 +32,9 @@ namespace CodeBase.Infrastructure.Factory
 
         public void Cleanup() { }
 
-        public GameObject CreateHero(Vector3 at)
+        public GameObject CreateHero(LocationStaticData at)
         {
-            GameObject hero = _assets.Instantiate(AssetPath.HeroPath, at);
+            GameObject hero = _assets.Instantiate(AssetPath.HeroPath, at.Position, at.Rotation);
             hero.Enable();
             hero.GetComponent<Hero>().Construct(_inputService);
             hero.GetComponent<HeroMover>().Construct(_inputService);
@@ -44,8 +45,17 @@ namespace CodeBase.Infrastructure.Factory
         public GameObject CreateCollectible<TCollectible>(Vector3 at) =>
             _items[typeof(TCollectible)].Invoke(at);
 
-        public GameObject CreateMoneySpawner(Vector3 at) =>
-            _assets.Instantiate(AssetPath.MoneySpawner, at);
+        public GameObject CreateMoneySpawner(LocationStaticData at) =>
+            _assets.Instantiate(AssetPath.MoneySpawner, at.Position, at.Rotation);
+
+        public GameObject CreateRabbitField(Vector3 at, Quaternion rotation) =>
+            _assets.Instantiate(AssetPath.RabbitFieldPath, at, rotation);
+
+        public GameObject CreateRabbitFieldBuilder(LocationStaticData at) =>
+            _assets.Instantiate(AssetPath.RabbitFieldBuilderPath, at.Position, at.Rotation);
+
+        public GameObject CreateCarrotField(LocationStaticData at) =>
+            _assets.Instantiate(AssetPath.CarrotFieldPath, at.Position, at.Rotation);
 
         public GameObject CreateHud()
         {

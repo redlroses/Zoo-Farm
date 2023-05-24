@@ -1,5 +1,5 @@
-﻿using CodeBase.Logic.Items;
-using CodeBase.Services;
+﻿using CodeBase.Services;
+using CodeBase.StaticData;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.Factory
@@ -7,9 +7,12 @@ namespace CodeBase.Infrastructure.Factory
     public interface IGameFactory : IService
     {
         void Cleanup();
-        GameObject CreateHero(Vector3 at);
+        GameObject CreateHero(LocationStaticData at);
         GameObject CreateHud();
         GameObject CreateCollectible<TCollectible>(Vector3 at);
-        GameObject CreateMoneySpawner(Vector3 moneySpawnerDefaultPosition);
+        GameObject CreateMoneySpawner(LocationStaticData at);
+        GameObject CreateRabbitField(Vector3 at, Quaternion rotation);
+        GameObject CreateRabbitFieldBuilder(LocationStaticData at);
+        GameObject CreateCarrotField(LocationStaticData at);
     }
 }

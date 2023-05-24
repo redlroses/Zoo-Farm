@@ -14,7 +14,6 @@ namespace CodeBase.Logic.Сollectible
         {
             if (collectible is MoneyPack moneyPack)
             {
-                print(_heroWallet.Wallet);
                 _heroWallet.Wallet.Replanish(moneyPack.AmountMoney);
             }
 

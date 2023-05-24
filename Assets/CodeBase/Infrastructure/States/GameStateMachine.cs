@@ -4,6 +4,7 @@ using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic;
 using CodeBase.Services;
 using CodeBase.Services.Input;
+using CodeBase.Services.StaticData;
 
 namespace CodeBase.Infrastructure.States
 {
@@ -20,6 +21,7 @@ namespace CodeBase.Infrastructure.States
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader,
                     services.Single<IGameFactory>(),
                     services.Single<IPlayerInputService>(),
+                    services.Single<IStaticDataService>(),
                     curtain),
                 [typeof(GameLoopState)] = new GameLoopState(this, services.Single<IPlayerInputService>()),
             };

@@ -6,5 +6,6 @@ namespace CodeBase.Services.StaticData
   {
     void Load();
     MoneyPackConfig MoneyPackConfig { get; }
+    LocationStaticData LocationFor(LocationKey key);
   }
 }
