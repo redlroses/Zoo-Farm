@@ -1,4 +1,4 @@
-﻿﻿using NTC.Global.Cache;
+﻿using NTC.Global.Cache;
 using TMPro;
 using UnityEngine;
 

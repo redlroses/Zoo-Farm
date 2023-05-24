@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using NaughtyAttributes;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace CodeBase.UI.Elements
 {
@@ -16,6 +17,7 @@ namespace CodeBase.UI.Elements
 
         private float _elapsedTime;
         private int _targetNumber;
+        private int _prevNumber;
 
         private void Awake() =>
             enabled = false;
@@ -35,13 +37,18 @@ namespace CodeBase.UI.Elements
 
         public void SetTextAnimated(int number)
         {
+            _prevNumber = _targetNumber;
             _targetNumber = number;
             _elapsedTime = 0;
             enabled = true;
         }
 
-        private int GetAnimatedNumberByTime(float time) =>
-            (int) Math.Round(_curveAnimation.Evaluate(time / _duration) * _targetNumber);
+        private int GetAnimatedNumberByTime(float time)
+        {
+            int difference = _targetNumber - _prevNumber;
+            float animatedNumber = _curveAnimation.Evaluate(time / _duration);
+            return _prevNumber + Mathf.RoundToInt(animatedNumber * difference);
+        }
 
         [Conditional("UNITY_EDITOR")]
         [Button("Set Test Text")]

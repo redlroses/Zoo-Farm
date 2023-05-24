@@ -23,7 +23,7 @@ namespace CodeBase.Logic.Inventory
 
         public void Add(IItem item)
         {
-            if (TryGetInventoryCell(item.ItemType, out InventoryCell inventoryCell))
+            if (TryGetInventoryCell(item, out InventoryCell inventoryCell))
             {
                 inventoryCell.Increase();
                 Debug.Log($"Count item {inventoryCell.Count}");
@@ -37,19 +37,19 @@ namespace CodeBase.Logic.Inventory
             Updated.Invoke(inventoryCell);
         }
 
-        public bool TryUse(StorableType storableType) =>
+        public bool TryUse(IItem storableType) =>
             TryGetInventoryCell(storableType, out InventoryCell _);
 
-        private bool TryGetInventoryCell(StorableType byType, out InventoryCell inventoryCell)
+        private bool TryGetInventoryCell(IItem byType, out InventoryCell inventoryCell)
         {
             inventoryCell = GetExistingInventoryCell(byType);
             return inventoryCell != null;
         }
 
-        private InventoryCell GetExistingInventoryCell(StorableType storableType)
+        private InventoryCell GetExistingInventoryCell(IItem item)
         {
             InventoryCell existingInventoryCell =
-                _storage.FirstOrDefault(inventoryCell => inventoryCell.Item.ItemType == storableType);
+                _storage.FirstOrDefault(inventoryCell => inventoryCell.Item == item);
             return existingInventoryCell;
         }
 

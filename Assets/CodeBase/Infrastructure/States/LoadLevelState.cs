@@ -1,14 +1,18 @@
 ﻿using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic;
+using CodeBase.Logic.Player;
+using CodeBase.Logic.Spawners;
 using CodeBase.Services.Input;
+using CodeBase.UI.Elements;
+using NTC.Global.System;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
     {
-        private const string PlayerKey = "Player";
-        private readonly Vector3 _heroDefaultPosition = new Vector3(42f, 0, 63f);
+        private readonly Vector3 _heroDefaultPosition = new Vector3(42f, 0, 42f);
+        private readonly Vector3 _moneySpawnerDefaultPosition = new Vector3(42f, 0, 63f);
 
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
@@ -45,7 +49,18 @@ namespace CodeBase.Infrastructure.States
             _stateMachine.Enter<GameLoopState>();
         }
 
-        private void InitGameWorld() { }
+        private void InitGameWorld()
+        {
+            InitMoneySpawner();
+        }
+
+        private void InitMoneySpawner()
+        {
+            GameObject moneySpawnerobject = _gameFactory.CreateMoneySpawner(_moneySpawnerDefaultPosition);
+            var moneySpawner = moneySpawnerobject.GetComponent<MoneySpawner>();
+            moneySpawner.Construct(_gameFactory);
+            moneySpawner.Spawn();
+        }
 
         private Vector3 GetHeroPosition() =>
             _heroDefaultPosition;
@@ -60,7 +75,9 @@ namespace CodeBase.Infrastructure.States
         private void InitHud(GameObject hero)
         {
             GameObject hud = _gameFactory.CreateHud();
+            hud.Enable();
             hud.GetComponent<Canvas>().worldCamera = Camera.main;
+            hud.GetComponentInChildren<WalletView>().Construct(hero.GetComponentInChildren<HeroWallet>().Wallet);
         }
     }
 }

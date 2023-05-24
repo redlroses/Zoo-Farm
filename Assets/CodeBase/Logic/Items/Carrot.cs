@@ -1,7 +1,6 @@
 ﻿namespace CodeBase.Logic.Items
 {
-    class Carrot : Item
+    class Carrot : IItem
     {
-        public Carrot(string name) : base(name) { }
     }
 }

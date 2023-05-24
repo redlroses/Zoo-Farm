@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2441668043557238593}
   - component: {fileID: 2224312437402753210}
   - component: {fileID: 5290015128612831784}
+  - component: {fileID: 9076643883975784601}
   m_Layer: 0
   m_Name: ItemCollector
   m_TagString: Untagged
@@ -158,7 +159,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c49e343a0684cce95fa32b5c072a57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroInventory: {fileID: 0}
+  _heroInventory: {fileID: 2441668043557238593}
+  _heroWallet: {fileID: 9076643883975784601}
+--- !u!114 &9076643883975784601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937325576604792355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3c1ce4150e44c2b24ae73401a8e63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7795573623054951508
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7795573623055448122
 Transform:
   m_ObjectHideFlags: 0

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using CodeBase.Infrastructure.AssetManagement;
-using CodeBase.Logic;
 using CodeBase.Logic.Items;
 using CodeBase.Logic.Movement;
 using CodeBase.Logic.Player;
+using CodeBase.Logic.Сollectible;
 using CodeBase.Services.Input;
+using CodeBase.Services.StaticData;
 using NTC.Global.System;
 using UnityEngine;
 
@@ -13,18 +14,18 @@ namespace CodeBase.Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
-        private const string CarrotName = "Carrot";
-
         private readonly IAssetProvider _assets;
         private readonly IAssetProvider _assetProvider;
         private readonly IPlayerInputService _inputService;
+        private readonly IStaticDataService _staticData;
 
-        private Dictionary<Type, Func<Item>> _items;
+        private Dictionary<Type, Func<Vector3, GameObject>> _items;
 
-        public GameFactory(IAssetProvider assets, IPlayerInputService inputService)
+        public GameFactory(IAssetProvider assets, IPlayerInputService inputService, IStaticDataService staticData)
         {
             _assets = assets;
             _inputService = inputService;
+            _staticData = staticData;
             ConfigureItems();
         }
 
@@ -40,8 +41,11 @@ namespace CodeBase.Infrastructure.Factory
             return hero;
         }
 
-        public Item CreateItem<TItem>() =>
-            _items[typeof(TItem)].Invoke();
+        public GameObject CreateCollectible<TCollectible>(Vector3 at) =>
+            _items[typeof(TCollectible)].Invoke(at);
+
+        public GameObject CreateMoneySpawner(Vector3 at) =>
+            _assets.Instantiate(AssetPath.MoneySpawner, at);
 
         public GameObject CreateHud()
         {
@@ -53,9 +57,17 @@ namespace CodeBase.Infrastructure.Factory
             Camera.main.GetComponentInParent<CameraFollower>().Follow(to);
 
         private void ConfigureItems() =>
-            _items = new Dictionary<Type, Func<Item>>
+            _items = new Dictionary<Type, Func<Vector3, GameObject>>
             {
-                [typeof(Carrot)] = () => new Carrot(CarrotName),
+                [typeof(MoneyPack)] = at => CreateMoneyPack(at),
             };
+
+        private GameObject CreateMoneyPack(Vector3 at)
+        {
+            GameObject moneyPackGameObject = _assets.Instantiate(AssetPath.MoneyPackPath, at);
+            MoneyPack moneyPack = moneyPackGameObject.GetComponent<MoneyPack>();
+            moneyPack.Construct(new Money(_staticData.MoneyPackConfig.AmountMoneyInPack));
+            return moneyPackGameObject;
+        }
     }
 }

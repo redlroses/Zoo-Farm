@@ -1,5 +1,6 @@
 ﻿using CodeBase.Logic.Inventory;
 using CodeBase.Logic.Observer;
+using CodeBase.Logic.Player;
 
 namespace CodeBase.Logic.Сollectible
 {

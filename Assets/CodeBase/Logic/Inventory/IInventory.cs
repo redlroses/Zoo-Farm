@@ -8,7 +8,7 @@ namespace CodeBase.Logic.Inventory
     {
         event Action<IReadOnlyInventoryCell> Updated;
         int Count { get; }
-        bool TryUse(StorableType storableType);
+        bool TryUse(IItem storableType);
         void Cleanup();
         void Add(IItem collectible);
     }

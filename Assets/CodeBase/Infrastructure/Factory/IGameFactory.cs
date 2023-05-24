@@ -9,6 +9,7 @@ namespace CodeBase.Infrastructure.Factory
         void Cleanup();
         GameObject CreateHero(Vector3 at);
         GameObject CreateHud();
-        Item CreateItem<TItem>();
+        GameObject CreateCollectible<TCollectible>(Vector3 at);
+        GameObject CreateMoneySpawner(Vector3 moneySpawnerDefaultPosition);
     }
 }
