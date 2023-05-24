@@ -62,12 +62,9 @@ namespace CodeBase.Infrastructure.States
         private void InitCarrotField()
         {
             GameObject carrotField =
-                _gameFactory.CreateCarrotSField(_staticDataService.LocationFor(LocationKey.CarrotField));
+                _gameFactory.CreateCarrotsField(_staticDataService.LocationFor(LocationKey.CarrotField));
 
-            foreach (Builder builder in carrotField.GetComponentsInChildren<Builder>())
-                builder.Construct(_gameFactory);
-
-            foreach (Builder builder in carrotField.GetComponentsInChildren<Builder>())
+            foreach (Builder builder in carrotField.GetComponentsInChildren<Builder>(true))
                 builder.Construct(_gameFactory);
         }
 

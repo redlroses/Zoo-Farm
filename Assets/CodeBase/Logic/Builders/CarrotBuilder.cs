@@ -11,15 +11,22 @@ namespace CodeBase.Logic.Builders
         protected override void Build(IGameFactory gameFactory, Transform at)
         {
             Vector3 atPosition = at.position;
-            GameObject carrotPlant = gameFactory.CreateCarrotPlant(atPosition);
+            Quaternion atRotation = at.rotation;
+
+            GameObject carrotPlant = gameFactory.CreateCarrotPlantOperator(atPosition);
+            GameObject sprout = gameFactory.CreateSprout(atPosition, atRotation);
+            GameObject fruit = gameFactory.CreateCarrotFruit(atPosition, atRotation);
+
             PlantOperator plantOperator = carrotPlant.GetComponent<PlantOperator>();
-            GameObject sprout = gameFactory.CreateSprout(atPosition);
-            GameObject fruit = gameFactory.CreateCarrotFruit(atPosition);
-            sprout.transform.parent = plantOperator.transform;
             fruit.GetComponent<CarrotFruit>().Construct(new Items.Carrot());
-            fruit.transform.parent = plantOperator.transform;
+
+            Transform operatorTransform = plantOperator.transform;
+            sprout.transform.parent = operatorTransform;
+            fruit.transform.parent = operatorTransform;
+
             fruit.Disable();
             sprout.Enable();
+
             plantOperator.Construct(sprout, fruit);
         }
     }

@@ -40,14 +40,14 @@ namespace CodeBase.Infrastructure.Factory
         public GameObject CreateRabbitFieldBuilder(LocationStaticData at) =>
             _assets.Instantiate(AssetPath.RabbitFieldBuilderPath, at.Position, at.Rotation);
 
-        public GameObject CreateCarrotSField(LocationStaticData at) =>
+        public GameObject CreateCarrotsField(LocationStaticData at) =>
             _assets.Instantiate(AssetPath.CarrotFieldPath, at.Position, at.Rotation);
 
-        public GameObject CreateCarrotPlant(Vector3 at) =>
+        public GameObject CreateCarrotPlantOperator(Vector3 at) =>
             _assets.Instantiate(AssetPath.PlantOperatorPath, at);
 
-        public GameObject CreateSprout(Vector3 at) =>
-            _assets.Instantiate(AssetPath.SproutPath, at);
+        public GameObject CreateSprout(Vector3 at, Quaternion rotation) =>
+            _assets.Instantiate(AssetPath.SproutPath, at, rotation);
 
         public GameObject CreateHud()
         {
@@ -55,17 +55,17 @@ namespace CodeBase.Infrastructure.Factory
             return hud;
         }
 
+        public GameObject CreateCarrotFruit(Vector3 at, Quaternion rotation) =>
+            _assets.Instantiate(AssetPath.CarrotFruitPath, at, rotation);
+
+        public GameObject CreateMoneyPack(Vector3 at) =>
+            _assets.Instantiate(AssetPath.MoneyPackPath, at);
+
         // private void ConfigureCollectibles() =>
         //     _items = new Dictionary<Type, Func<Vector3, GameObject>>
         //     {
         //         [typeof(MoneyPack)] = CreateMoneyPack,
         //         [typeof(CarrotFruit)] = CreateCarrotFruit,
         //     };
-
-        public GameObject CreateCarrotFruit(Vector3 at) =>
-            _assets.Instantiate(AssetPath.CarrotFruitPath, at);
-
-        public GameObject CreateMoneyPack(Vector3 at) =>
-            _assets.Instantiate(AssetPath.MoneyPackPath, at);
     }
 }

@@ -13,10 +13,10 @@ namespace CodeBase.Infrastructure.Factory
         GameObject CreateMoneySpawner(LocationStaticData at);
         GameObject CreateRabbitField(Vector3 at, Quaternion rotation);
         GameObject CreateRabbitFieldBuilder(LocationStaticData at);
-        GameObject CreateCarrotSField(LocationStaticData at);
-        GameObject CreateCarrotPlant(Vector3 atPosition);
-        GameObject CreateSprout(Vector3 at);
-        GameObject CreateCarrotFruit(Vector3 at);
+        GameObject CreateCarrotsField(LocationStaticData at);
+        GameObject CreateCarrotPlantOperator(Vector3 atPosition);
+        GameObject CreateSprout(Vector3 at, Quaternion rotation);
+        GameObject CreateCarrotFruit(Vector3 at, Quaternion rotation);
         GameObject CreateMoneyPack(Vector3 at);
     }
 }
