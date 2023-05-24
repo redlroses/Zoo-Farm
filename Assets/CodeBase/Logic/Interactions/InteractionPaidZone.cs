@@ -19,6 +19,9 @@ namespace CodeBase.Logic.Interactions
         private ISpend _wallet;
 
         public event Action FullPaid = () => { };
+        public event Action<int> CostChanged = i => { };
+
+        public int InteractionCost => _interactionCost;
 
         private void Start()
         {
@@ -39,6 +42,7 @@ namespace CodeBase.Logic.Interactions
             if (_wallet.TrySpend(_coinsPerTick))
             {
                 _interactionCostLeft -= _coinsPerTick;
+                CostChanged.Invoke(_interactionCostLeft);
                 _timerOperator.Restart();
             }
         }

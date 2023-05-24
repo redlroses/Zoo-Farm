@@ -54,8 +54,11 @@ namespace CodeBase.Infrastructure.Factory
         public GameObject CreateRabbitFieldBuilder(LocationStaticData at) =>
             _assets.Instantiate(AssetPath.RabbitFieldBuilderPath, at.Position, at.Rotation);
 
-        public GameObject CreateCarrotField(LocationStaticData at) =>
+        public GameObject CreateCarrotSField(LocationStaticData at) =>
             _assets.Instantiate(AssetPath.CarrotFieldPath, at.Position, at.Rotation);
+
+        public void CreateCarrot(Vector3 at) =>
+            _assets.Instantiate(AssetPath.CarrotPath, at);
 
         public GameObject CreateHud()
         {

@@ -13,6 +13,7 @@ namespace CodeBase.Infrastructure.Factory
         GameObject CreateMoneySpawner(LocationStaticData at);
         GameObject CreateRabbitField(Vector3 at, Quaternion rotation);
         GameObject CreateRabbitFieldBuilder(LocationStaticData at);
-        GameObject CreateCarrotField(LocationStaticData at);
+        GameObject CreateCarrotSField(LocationStaticData at);
+        void CreateCarrot(Vector3 atPosition);
     }
 }

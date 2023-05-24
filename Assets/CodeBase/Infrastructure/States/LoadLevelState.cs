@@ -65,7 +65,7 @@ namespace CodeBase.Infrastructure.States
 
         private void InitCarrotField()
         {
-            GameObject carrotField = _gameFactory.CreateCarrotField(_staticDataService.LocationFor(LocationKey.CarrotField));
+            GameObject carrotField = _gameFactory.CreateCarrotSField(_staticDataService.LocationFor(LocationKey.CarrotField));
         }
 
         private void InitRabbitFieldBuilder()

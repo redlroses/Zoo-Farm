@@ -9,5 +9,6 @@
         public const string RabbitFieldPath = "Prefabs/RabbitField";
         public const string CarrotFieldPath = "Prefabs/CarrotField";
         public const string RabbitFieldBuilderPath = "Prefabs/RabbitFieldBuilder";
+        public const string CarrotPath = "Prefabs/Carrot";
     }
 }
