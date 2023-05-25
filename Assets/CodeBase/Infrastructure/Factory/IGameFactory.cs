@@ -18,5 +18,6 @@ namespace CodeBase.Infrastructure.Factory
         GameObject CreateSprout(Vector3 at, Quaternion rotation);
         GameObject CreateCarrotFruit(Vector3 at, Quaternion rotation);
         GameObject CreateMoneyPack(Vector3 at);
+        GameObject CreateRabbit(Vector3 at);
     }
 }

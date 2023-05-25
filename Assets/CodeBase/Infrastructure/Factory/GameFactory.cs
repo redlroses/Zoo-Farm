@@ -61,6 +61,9 @@ namespace CodeBase.Infrastructure.Factory
         public GameObject CreateMoneyPack(Vector3 at) =>
             _assets.Instantiate(AssetPath.MoneyPackPath, at);
 
+        public GameObject CreateRabbit(Vector3 at) =>
+            _assets.Instantiate(AssetPath.RabbitPath, at);
+
         // private void ConfigureCollectibles() =>
         //     _items = new Dictionary<Type, Func<Vector3, GameObject>>
         //     {

@@ -1,7 +1,6 @@
 ﻿using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic;
 using CodeBase.Logic.Builders;
-using CodeBase.Logic.Movement;
 using CodeBase.Logic.Player;
 using CodeBase.Logic.Spawners;
 using CodeBase.Services.Input;
@@ -72,7 +71,7 @@ namespace CodeBase.Infrastructure.States
         {
             GameObject rabbitField =
                 _gameFactory.CreateRabbitFieldBuilder(_staticDataService.LocationFor(LocationKey.RabbitFieldBuilder));
-            rabbitField.GetComponent<RabbilFieldBuilder>().Construct(_gameFactory);
+            rabbitField.GetComponent<RabbitFieldBuilder>().Construct(_gameFactory);
         }
 
         private void InitMoneySpawner()

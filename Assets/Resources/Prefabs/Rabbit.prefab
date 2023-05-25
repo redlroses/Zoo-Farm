@@ -666,13 +666,16 @@ GameObject:
   - component: {fileID: 2388696038744259459}
   - component: {fileID: 2334310478007970783}
   - component: {fileID: 2393315786132851170}
+  - component: {fileID: 95674028260086485}
+  - component: {fileID: 95674028260086486}
+  - component: {fileID: 95674028260086484}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2388696038744259459
 Transform:
   m_ObjectHideFlags: 0
@@ -725,6 +728,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2334310478007970783}
+--- !u!54 &95674028260086485
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392361769438292143}
+  serializedVersion: 2
+  m_Mass: 5
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!135 &95674028260086486
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392361769438292143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &95674028260086484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392361769438292143}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1858da9b4aaa4b84b8c53ac6c1c1cc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _rotateSpeed: 5
+  _rigidbody: {fileID: 95674028260086485}
 --- !u!1 &2392375777580981729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1259,8 @@ MonoBehaviour:
   _toTransitions:
   - {fileID: 2393315786023565527}
   _animator: {fileID: 2393315786132851170}
+  _mover: {fileID: 95674028260086484}
+  _bounds: {fileID: 0}
 --- !u!1 &2393315785554886931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658b73aac1b246c395abf2e755f77cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitionDelay: {x: 1.6079632, y: 4.2113323}
+  _mover: {fileID: 95674028260086484}
+  _destinationOffset: 0.1
 --- !u!1 &2393315786287746535
 GameObject:
   m_ObjectHideFlags: 0

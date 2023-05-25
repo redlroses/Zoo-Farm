@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionzone: {fileID: 2670008065139716555}
   _spawnPoint: {fileID: 4892515270333536585}
+  _startRabbitsCount: 2
 --- !u!1 &3988982107310403550
 GameObject:
   m_ObjectHideFlags: 0

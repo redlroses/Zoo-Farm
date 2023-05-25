@@ -12,5 +12,6 @@
         public const string PlantOperatorPath = "Prefabs/CarrotPlantOperator";
         public const string CarrotFruitPath = "Prefabs/CarrotFruit";
         public const string SproutPath = "Prefabs/Sprout";
+        public const string RabbitPath = "Prefabs/Rabbit";
     }
 }
