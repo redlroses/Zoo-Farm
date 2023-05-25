@@ -7,7 +7,7 @@ namespace CodeBase.UI.Elements
     {
         [SerializeField] private GameObject _arrow;
         [SerializeField] private TextSetterAnimated _textSetter;
-        [SerializeField] private InteractionPaidZone _paidZone;
+        [SerializeField] private InteractionWalletPaidZone _paidZone;
 
         private void OnEnable()
         {

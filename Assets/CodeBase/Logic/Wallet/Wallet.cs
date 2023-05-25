@@ -1,4 +1,5 @@
 ﻿using System;
+using CodeBase.Logic.Items;
 
 namespace CodeBase.Logic.Wallet
 {
@@ -11,7 +12,7 @@ namespace CodeBase.Logic.Wallet
         public int Cashe
         {
             get => _cashe;
-            set
+            private set
             {
                 _cashe = value;
                 Changed.Invoke(_cashe);
@@ -21,8 +22,13 @@ namespace CodeBase.Logic.Wallet
         public void Replanish(int amount) =>
             Cashe += amount;
 
-        public bool TrySpend(int amount)
+        public bool TrySpend(ItemType item, int amount)
         {
+            if (item != ItemType.Money)
+            {
+                return false;
+            }
+
             if (Cashe - amount < 0)
                 return false;
 

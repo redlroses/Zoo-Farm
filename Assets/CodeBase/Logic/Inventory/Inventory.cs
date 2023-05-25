@@ -52,18 +52,18 @@ namespace CodeBase.Logic.Inventory
             return true;
         }
 
-        public bool TryUse(IItem itemType)
+        public bool TrySpend(ItemType itemType, int amount)
         {
-            if (TryGetInventoryCell(itemType.Type, out InventoryCell inventoryCell))
+            if (TryGetInventoryCell(itemType, out InventoryCell inventoryCell))
             {
-                Expend(inventoryCell);
+                Spend(inventoryCell);
                 return true;
             }
 
             return false;
         }
 
-        private void Expend(InventoryCell existingInventoryCell)
+        private void Spend(InventoryCell existingInventoryCell)
         {
             existingInventoryCell.Decrease();
             _itemsCount--;

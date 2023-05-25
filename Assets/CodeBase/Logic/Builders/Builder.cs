@@ -6,7 +6,7 @@ namespace CodeBase.Logic.Builders
 {
     public abstract class Builder : MonoBehaviour
     {
-        [SerializeField] private InteractionPaidZone _interactionzone;
+        [SerializeField] private InteractionWalletPaidZone _interactionZone;
         [SerializeField] private Transform _spawnPoint;
 
         private IGameFactory _gameFactory;
@@ -15,10 +15,10 @@ namespace CodeBase.Logic.Builders
             _gameFactory = gameFactory;
 
         private void OnEnable() =>
-            _interactionzone.FullPaid += OnFillPaid;
+            _interactionZone.FullPaid += OnFillPaid;
 
         private void OnDisable() =>
-            _interactionzone.FullPaid -= OnFillPaid;
+            _interactionZone.FullPaid -= OnFillPaid;
 
         private void OnFillPaid() =>
             Build(_gameFactory, _spawnPoint);

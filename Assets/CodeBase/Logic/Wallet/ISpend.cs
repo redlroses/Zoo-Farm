@@ -1,7 +1,9 @@
-﻿namespace CodeBase.Logic.Wallet
+﻿using CodeBase.Logic.Items;
+
+namespace CodeBase.Logic.Wallet
 {
     public interface ISpend
     {
-        bool TrySpend(int amount);
+        bool TrySpend(ItemType item, int amount);
     }
 }

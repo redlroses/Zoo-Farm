@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using CodeBase.Logic.Items;
+using CodeBase.Logic.Wallet;
 
 namespace CodeBase.Logic.Inventory
 {
-    public interface IInventory : IEnumerable<IReadOnlyInventoryCell>
+    public interface IInventory : IEnumerable<IReadOnlyInventoryCell>, ISpend
     {
         event Action<IReadOnlyInventoryCell> Updated;
         int Count { get; }
-        bool TryUse(IItem item);
         void Cleanup();
         bool TruAdd(IItem collectible);
         bool IsFull { get; }
