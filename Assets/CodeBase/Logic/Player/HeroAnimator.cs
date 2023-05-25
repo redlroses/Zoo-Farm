@@ -1,11 +1,10 @@
 ﻿using System;
 using CodeBase.Logic.AnimatorStateMachine;
-using NTC.Global.Cache;
 using UnityEngine;
 
 namespace CodeBase.Logic.Player
 {
-    public class HeroAnimator : MonoCache, IAnimationStateReader
+    public class HeroAnimator : MonoBehaviour, IAnimationStateReader
     {
         private static readonly int IsRun = Animator.StringToHash("IsRun");
 

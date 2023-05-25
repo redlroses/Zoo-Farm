@@ -37,12 +37,9 @@ namespace CodeBase.Logic.Builders
         {
             foreach (CarrotBuilder builder in GetComponentsInChildren<CarrotBuilder>(true))
             {
-                Debug.Log("child");
                 builder.gameObject.Disable();
                 _builders.Enqueue(builder);
             }
-
-            Debug.Log(_builders.Count);
         }
     }
 }

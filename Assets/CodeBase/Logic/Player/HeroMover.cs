@@ -1,8 +1,9 @@
-﻿using CodeBase.Services.Input;
+﻿using CodeBase.Logic.Movement;
+using CodeBase.Services.Input;
 using CodeBase.Tools.Extension;
 using UnityEngine;
 
-namespace CodeBase.Logic.Movement
+namespace CodeBase.Logic.Player
 {
     public class HeroMover : Mover
     {
@@ -13,8 +14,8 @@ namespace CodeBase.Logic.Movement
 
         protected override Vector3 GetMoveDirection()
         {
-            var cameraRotation = Camera.main.transform.parent.transform;
-            var compensatedQuaternion = cameraRotation.TransformVector(_input.MoveDirection.AddY(0));
+            Transform cameraRotation = Camera.main.transform.parent.transform;
+            Vector3 compensatedQuaternion = cameraRotation.TransformVector(_input.MoveDirection.AddY(0));
             return compensatedQuaternion;
         }
 
