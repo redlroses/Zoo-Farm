@@ -1,12 +1,30 @@
 ﻿using System;
+using CodeBase.Logic.Items;
+using NTC.Global.System;
+using UnityEngine;
 
 namespace CodeBase.Logic.Сollectible
 {
-    public class CarrotFruit : Collectible, ICollectibleReactive
+    public class CarrotFruit : MonoBehaviour, ICollectibleReactive
     {
+        [SerializeField] private int _weight;
+        [SerializeField] private int _count;
+
         public event Action Collected = () => { };
 
-        protected override void OnCollected() =>
+        public IItem Item { get; private set; }
+        public int Count { get; private set; }
+
+        private void Awake()
+        {
+            Count = _count;
+            Item = new Items.Carrot(_weight);
+        }
+
+        public void Collect()
+        {
+            gameObject.Disable();
             Collected.Invoke();
+        }
     }
 }

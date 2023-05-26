@@ -1,5 +1,4 @@
 ﻿using System;
-using CodeBase.Logic.Items;
 
 namespace CodeBase.Logic.Wallet
 {

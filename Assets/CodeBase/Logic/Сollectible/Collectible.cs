@@ -7,9 +7,13 @@ namespace CodeBase.Logic.Сollectible
     public class Collectible : MonoBehaviour, ICollectible
     {
         public IItem Item { get; private set; }
+        public int Count { get; private set; }
 
-        public void Construct(IItem item) =>
+        public void Construct(IItem item, int count)
+        {
             Item = item;
+            Count = count;
+        }
 
         public void Collect()
         {

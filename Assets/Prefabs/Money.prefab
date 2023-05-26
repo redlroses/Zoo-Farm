@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1487352796147837578}
   - component: {fileID: 6238594994069918350}
   - component: {fileID: 4763454713789760800}
-  - component: {fileID: 959173236}
   - component: {fileID: 959173241}
+  - component: {fileID: 800530623996898737}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -99,18 +99,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &959173236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8730246032866903748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58462b7fe3b8493fbcadaa4fadd39b31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &959173241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,3 +112,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attractSpeed: 10
+--- !u!114 &800530623996898737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8730246032866903748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72dd5327ef2b444392ee8d85f652aed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _amountMoneyInPack: 10

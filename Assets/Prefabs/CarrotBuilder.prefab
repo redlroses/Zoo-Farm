@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5686905882535269262}
   - component: {fileID: 4056049208611975122}
   - component: {fileID: 1424220634700208399}
-  - component: {fileID: 8977880194605599194}
+  - component: {fileID: -2313630315800422800}
   m_Layer: 0
   m_Name: CarrotBuilder
   m_TagString: Untagged
@@ -72,9 +72,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58cdaa8eac6a450c845e87a584caecf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionZone: {fileID: 8977880194605599194}
+  _interactionZone: {fileID: -2313630315800422800}
   _spawnPoint: {fileID: 0}
---- !u!114 &8977880194605599194
+--- !u!114 &-2313630315800422800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,13 +83,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6505170863361765677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf55ceafb7464baea926c03bbee30ac1, type: 3}
+  m_Script: {fileID: 11500000, guid: 73c37d1faf504b318f0ff970490c19ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionCost: 10
-  _coinsPerTick: 1
-  _tickDuration: 0.1
   _currencyName: Coin
+  _interactionCost: 60
+  _coinsPerTick: 1
+  _tickDuration: 0.02
 --- !u!1001 &5968480935863188985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ PrefabInstance:
     - target: {fileID: 8602546309449006162, guid: 41f55b2c71242514980fc9cecad24530, type: 3}
       propertyPath: _paidZone
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -2313630315800422800}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41f55b2c71242514980fc9cecad24530, type: 3}
 --- !u!4 &8433165963293274378 stripped

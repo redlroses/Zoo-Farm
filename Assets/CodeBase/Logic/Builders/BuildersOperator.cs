@@ -9,7 +9,7 @@ namespace CodeBase.Logic.Builders
     {
         private readonly Queue<Builder> _builders = new Queue<Builder>();
 
-        private InteractionWalletPaidZone _interactionPaidZone;
+        private InteractionInventoryPaidZone _interactionPaidZone;
 
         private void Start()
         {
@@ -29,7 +29,7 @@ namespace CodeBase.Logic.Builders
                 return;
 
             builder.gameObject.Enable();
-            _interactionPaidZone = builder.GetComponent<InteractionWalletPaidZone>();
+            _interactionPaidZone = builder.GetComponent<InteractionInventoryPaidZone>();
             _interactionPaidZone.FullPaid += OnFullPaid;
         }
 

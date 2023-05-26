@@ -1,6 +1,5 @@
 ﻿using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic.Plants;
-using CodeBase.Logic.Сollectible;
 using NTC.Global.System;
 using UnityEngine;
 
@@ -18,7 +17,6 @@ namespace CodeBase.Logic.Builders
             GameObject fruit = gameFactory.CreateCarrotFruit(atPosition, atRotation);
 
             PlantOperator plantOperator = carrotPlant.GetComponent<PlantOperator>();
-            fruit.GetComponent<CarrotFruit>().Construct(new Items.Carrot());
 
             Transform operatorTransform = plantOperator.transform;
             sprout.transform.parent = operatorTransform;

@@ -12,14 +12,14 @@ namespace CodeBase.Logic.Сollectible
 
         protected override void OnTargetEntered(ICollectible collectible)
         {
-            if (collectible is MoneyPack moneyPack)
-            {
-                _heroWallet.Wallet.Replanish(moneyPack.AmountMoney);
-                collectible.Collect();
-                return;
-            }
+            // if (collectible is MoneyPack moneyPack)
+            // {
+            //     _heroWallet.Wallet.Replanish(moneyPack.Count);
+            //     collectible.Collect();
+            //     return;
+            // }
 
-            if (_heroInventory.Inventory.TryAdd(collectible.Item))
+            if (_heroInventory.Inventory.TryAdd(collectible.Item, collectible.Count))
             {
                 collectible.Collect();
             }

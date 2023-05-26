@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CodeBase.Logic.Items;
-using UnityEngine;
 
 namespace CodeBase.Logic.Inventory
 {
@@ -39,32 +38,31 @@ namespace CodeBase.Logic.Inventory
             if (IsFull)
                 return false;
 
-            if (IsAllowableWeight(item, amount) == false)
+            if (IsAllowableWeight(item, amount, out int totalWeight) == false)
                 return false;
 
-            if (TryGetInventoryCell(item.GetType(), out InventoryCell inventoryCell))
-            {
-                inventoryCell.IncreaseCount();
-            }
-            else
+            if (TryGetInventoryCell(item.GetType(), out InventoryCell inventoryCell) == false)
             {
                 inventoryCell = new InventoryCell(item);
                 _storage.Add(inventoryCell);
             }
 
+            for (int i = 0; i < amount; i++)
+            {
+                inventoryCell.IncreaseCount();
+            }
+
+            _itemsWeight += totalWeight;
             Updated.Invoke(inventoryCell);
-            _itemsWeight++;
             return true;
         }
 
         public bool TrySpend(Type itemType, int amount)
         {
-            Debug.Log(itemType);
-
             if (TryGetInventoryCell(itemType, out InventoryCell inventoryCell) == false)
                 return false;
 
-            if (inventoryCell.Count <= amount)
+            if (inventoryCell.Count < amount)
                 return false;
 
             for (int i = 0; i < amount; i++)
@@ -76,7 +74,11 @@ namespace CodeBase.Logic.Inventory
         private void Spend(InventoryCell inventoryCell)
         {
             inventoryCell.DecreaseCount();
-            _itemsWeight--;
+
+            if (inventoryCell.Item is IWeighty weighty)
+            {
+                _itemsWeight -= weighty.Weight;
+            }
 
             if (inventoryCell.IsEmpty)
                 _storage.Remove(inventoryCell);
@@ -84,11 +86,13 @@ namespace CodeBase.Logic.Inventory
             Updated.Invoke(inventoryCell);
         }
 
-        private bool IsAllowableWeight(IItem item, int amount)
+        private bool IsAllowableWeight(IItem item, int amount, out int totalWeight)
         {
+            totalWeight = default;
+
             if (item is IWeighty weighty)
             {
-                int totalWeight = weighty.Weight * amount;
+                totalWeight = weighty.Weight * amount;
                 return totalWeight + Weight <= _maxWeight;
             }
 

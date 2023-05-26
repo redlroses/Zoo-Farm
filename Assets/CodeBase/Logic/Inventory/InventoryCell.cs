@@ -1,5 +1,4 @@
 ﻿using CodeBase.Logic.Items;
-using UnityEngine;
 
 namespace CodeBase.Logic.Inventory
 {
@@ -12,7 +11,7 @@ namespace CodeBase.Logic.Inventory
 
         public InventoryCell(IItem item)
         {
-            Count = 1;
+            Count = 0;
             Item = item;
         }
 

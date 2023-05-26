@@ -6,7 +6,7 @@ namespace CodeBase.Logic.Builders
 {
     public abstract class Builder : MonoBehaviour
     {
-        [SerializeField] private InteractionWalletPaidZone _interactionZone;
+        [SerializeField] private InteractionInventoryPaidZone _interactionZone;
         [SerializeField] private Transform _spawnPoint;
 
         private IGameFactory _gameFactory;
