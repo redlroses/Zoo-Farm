@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using CodeBase.Logic.Inventory;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 namespace CodeBase.Logic.Player
 {
@@ -11,10 +13,12 @@ namespace CodeBase.Logic.Player
 
         public IInventory Inventory { get; private set; }
 
-        private void Start()
-        {
+        public void Construct() =>
             Inventory = new Inventory.Inventory(new List<IReadOnlyInventoryCell>(), _maxWeight);
 
+        [Conditional("UNITY_EDITOR")]
+        private void Start()
+        {
             Debug.Log("Press \"E\" for look into inventory");
 
             InputAction input = new InputAction("Press E", InputActionType.Button, "<Keyboard>/E");

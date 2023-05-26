@@ -1,6 +1,7 @@
 ﻿using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic;
 using CodeBase.Logic.Builders;
+using CodeBase.Logic.Inventory;
 using CodeBase.Logic.Player;
 using CodeBase.Logic.Spawners;
 using CodeBase.Services.Input;
@@ -98,7 +99,9 @@ namespace CodeBase.Infrastructure.States
             GameObject hud = _gameFactory.CreateHud();
             hud.Enable();
             hud.GetComponent<Canvas>().worldCamera = Camera.main;
-            hud.GetComponentInChildren<WalletView>().Construct(hero.GetComponentInChildren<HeroWallet>().Wallet);
+            HeroInventory heroInventory = hero.GetComponentInChildren<HeroInventory>();
+            heroInventory.Construct();
+            hud.GetComponentInChildren<MoneyView>().Construct(heroInventory.Inventory);
         }
 
         private void FollowCamera(Transform to) =>
