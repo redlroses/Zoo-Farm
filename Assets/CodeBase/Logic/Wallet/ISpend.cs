@@ -1,9 +1,10 @@
-﻿using CodeBase.Logic.Items;
+﻿using System;
+using CodeBase.Logic.Items;
 
 namespace CodeBase.Logic.Wallet
 {
     public interface ISpend
     {
-        bool TrySpend(ItemType item, int amount);
+        bool TrySpend(Type item, int amount);
     }
 }

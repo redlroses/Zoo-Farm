@@ -89,6 +89,7 @@ MonoBehaviour:
   _interactionCost: 10
   _coinsPerTick: 1
   _tickDuration: 0.1
+  _currencyName: Coin
 --- !u!1001 &5968480935863188985
 PrefabInstance:
   m_ObjectHideFlags: 0

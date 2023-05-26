@@ -19,7 +19,7 @@ namespace CodeBase.Logic.Сollectible
                 return;
             }
 
-            if (_heroInventory.Inventory.TruAdd(collectible.Item))
+            if (_heroInventory.Inventory.TryAdd(collectible.Item))
             {
                 collectible.Collect();
             }

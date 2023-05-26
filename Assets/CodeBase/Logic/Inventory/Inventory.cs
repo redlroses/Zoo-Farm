@@ -3,25 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CodeBase.Logic.Items;
+using UnityEngine;
 
 namespace CodeBase.Logic.Inventory
 {
     public sealed class Inventory : IReadOnlyCollection<IReadOnlyInventoryCell>, IInventory
     {
         private readonly List<InventoryCell> _storage;
-        private readonly int _maxItems;
+        private readonly int _maxWeight;
 
-        private int _itemsCount;
+        private int _itemsWeight;
 
         public event Action<IReadOnlyInventoryCell> Updated = c => { };
 
-        public int Count => _itemsCount;
+        public int Weight => _itemsWeight;
+        public bool IsFull => _itemsWeight >= _maxWeight;
 
-        public bool IsFull => _itemsCount >= _maxItems;
+        public int Count => _storage.Count;
 
-        public Inventory(List<IReadOnlyInventoryCell> storage, int maxItems)
+        public Inventory(List<IReadOnlyInventoryCell> storage, int maxWeight)
         {
-            _maxItems = maxItems;
+            _maxWeight = maxWeight;
             _storage = storage.ConvertAll(cell => (InventoryCell) cell);
         }
 
@@ -32,14 +34,17 @@ namespace CodeBase.Logic.Inventory
         public void Cleanup() =>
             _storage.Clear();
 
-        public bool TruAdd(IItem item)
+        public bool TryAdd(IItem item, int amount = 1)
         {
             if (IsFull)
                 return false;
 
-            if (TryGetInventoryCell(item.Type, out InventoryCell inventoryCell))
+            if (IsAllowableWeight(item, amount) == false)
+                return false;
+
+            if (TryGetInventoryCell(item.GetType(), out InventoryCell inventoryCell))
             {
-                inventoryCell.Increase();
+                inventoryCell.IncreaseCount();
             }
             else
             {
@@ -48,42 +53,58 @@ namespace CodeBase.Logic.Inventory
             }
 
             Updated.Invoke(inventoryCell);
-            _itemsCount++;
+            _itemsWeight++;
             return true;
         }
 
-        public bool TrySpend(ItemType itemType, int amount)
+        public bool TrySpend(Type itemType, int amount)
         {
-            if (TryGetInventoryCell(itemType, out InventoryCell inventoryCell))
-            {
+            Debug.Log(itemType);
+
+            if (TryGetInventoryCell(itemType, out InventoryCell inventoryCell) == false)
+                return false;
+
+            if (inventoryCell.Count <= amount)
+                return false;
+
+            for (int i = 0; i < amount; i++)
                 Spend(inventoryCell);
-                return true;
+
+            return true;
+        }
+
+        private void Spend(InventoryCell inventoryCell)
+        {
+            inventoryCell.DecreaseCount();
+            _itemsWeight--;
+
+            if (inventoryCell.IsEmpty)
+                _storage.Remove(inventoryCell);
+
+            Updated.Invoke(inventoryCell);
+        }
+
+        private bool IsAllowableWeight(IItem item, int amount)
+        {
+            if (item is IWeighty weighty)
+            {
+                int totalWeight = weighty.Weight * amount;
+                return totalWeight + Weight <= _maxWeight;
             }
 
-            return false;
+            return true;
         }
 
-        private void Spend(InventoryCell existingInventoryCell)
-        {
-            existingInventoryCell.Decrease();
-            _itemsCount--;
-
-            if (existingInventoryCell.IsEmpty)
-                _storage.Remove(existingInventoryCell);
-
-            Updated.Invoke(existingInventoryCell);
-        }
-
-        private bool TryGetInventoryCell(ItemType byType, out InventoryCell inventoryCell)
+        private bool TryGetInventoryCell(Type byType, out InventoryCell inventoryCell)
         {
             inventoryCell = GetExistingInventoryCell(byType);
             return inventoryCell != null;
         }
 
-        private InventoryCell GetExistingInventoryCell(ItemType storableType)
+        private InventoryCell GetExistingInventoryCell(Type byType)
         {
             InventoryCell existingInventoryCell =
-                _storage.FirstOrDefault(inventoryCell => inventoryCell.Item.Type == storableType);
+                _storage.FirstOrDefault(inventoryCell => inventoryCell.Item.GetType() == byType);
             return existingInventoryCell;
         }
     }

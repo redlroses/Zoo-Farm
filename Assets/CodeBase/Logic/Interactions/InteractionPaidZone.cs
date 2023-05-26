@@ -22,7 +22,7 @@ namespace CodeBase.Logic.Interactions
 
         public int InteractionCost => _interactionCost;
 
-        private void Start()
+        protected virtual void Start()
         {
             _timerOperator ??= GetComponent<TimerOperator>();
             _timerOperator.SetUp(_tickDuration, OnTick);

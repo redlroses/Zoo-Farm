@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 95674028260086485}
   - component: {fileID: 95674028260086486}
   - component: {fileID: 95674028260086484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rabbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,7 +1260,6 @@ MonoBehaviour:
   - {fileID: 2393315786023565527}
   _animator: {fileID: 2393315786132851170}
   _mover: {fileID: 95674028260086484}
-  _bounds: {fileID: 0}
 --- !u!1 &2393315785554886931
 GameObject:
   m_ObjectHideFlags: 0

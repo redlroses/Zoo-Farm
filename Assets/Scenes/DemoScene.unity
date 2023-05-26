@@ -329,7 +329,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &764870474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1103836716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +487,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1142790428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,11 +688,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1481727010 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 1481727010, guid: c5308c36d90515248a0925db366e2d49, type: 3}
-  m_PrefabInstance: {fileID: 5446473075643607559}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1597178707
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +704,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1597178708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,10 +788,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rabbit
       objectReference: {fileID: 0}
-    - target: {fileID: 2393315785501567547, guid: 457f661e6a5fb4e4088795f6505ef202, type: 3}
-      propertyPath: _bounds
-      value: 
-      objectReference: {fileID: 1481727010}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 457f661e6a5fb4e4088795f6505ef202, type: 3}
 --- !u!1001 &2656715249803829585

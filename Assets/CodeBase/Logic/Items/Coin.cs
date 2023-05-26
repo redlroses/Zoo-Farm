@@ -1,4 +1,4 @@
 ﻿namespace CodeBase.Logic.Items
 {
-    public interface IItem { }
+    public struct Coin : IItem { }
 }

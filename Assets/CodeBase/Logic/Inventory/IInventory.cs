@@ -8,9 +8,9 @@ namespace CodeBase.Logic.Inventory
     public interface IInventory : IEnumerable<IReadOnlyInventoryCell>, ISpend
     {
         event Action<IReadOnlyInventoryCell> Updated;
-        int Count { get; }
+        int Weight { get; }
         void Cleanup();
-        bool TruAdd(IItem collectible);
+        bool TryAdd(IItem collectible, int amount = 1);
         bool IsFull { get; }
     }
 }

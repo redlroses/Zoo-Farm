@@ -1,7 +1,10 @@
 ﻿namespace CodeBase.Logic.Items
 {
-    public class Carrot : IItem
+    public struct Carrot : IWeighty
     {
-        public ItemType Type { get; } = ItemType.Carrot;
+        public int Weight { get; }
+
+        public Carrot(int weight) =>
+            Weight = weight;
     }
 }

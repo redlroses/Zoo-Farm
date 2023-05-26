@@ -105,6 +105,7 @@ MonoBehaviour:
   _interactionCost: 60
   _coinsPerTick: 1
   _tickDuration: 0.01
+  _currencyName: Coin
 --- !u!1 &3988982107310403550
 GameObject:
   m_ObjectHideFlags: 0

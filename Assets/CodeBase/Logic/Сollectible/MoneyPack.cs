@@ -6,9 +6,9 @@ namespace CodeBase.Logic.Сollectible
     public class MoneyPack : Collectible
     {
         [SerializeField] private int _amountMoneyInPack;
-        public int AmountMoney => ((Money) Item).Amount;
+        public int AmountMoney => _amountMoneyInPack;
 
         private void Awake() =>
-            Construct(new Money(_amountMoneyInPack));
+            Construct(new Coin());
     }
 }

@@ -22,9 +22,9 @@ namespace CodeBase.Logic.Wallet
         public void Replanish(int amount) =>
             Cashe += amount;
 
-        public bool TrySpend(ItemType item, int amount)
+        public bool TrySpend(Type item, int amount)
         {
-            if (item != ItemType.Money)
+            if (item != typeof(Coin))
             {
                 return false;
             }
