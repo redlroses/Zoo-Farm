@@ -9,11 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2670008065139716551}
-  - component: {fileID: 2670008065139716550}
-  - component: {fileID: 2670008065139716549}
-  - component: {fileID: 2670008065139716548}
   - component: {fileID: 8837476730266156572}
-  - component: {fileID: -5027511345599149978}
   m_Layer: 0
   m_Name: RabbitFieldBuilder
   m_TagString: Untagged
@@ -35,46 +31,11 @@ Transform:
   m_Children:
   - {fileID: 202965701822954707}
   - {fileID: 4892515270333536585}
+  - {fileID: 3289635351824422720}
+  - {fileID: 5072731326586065626}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2670008065139716550
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2670008065139716554}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &2670008065139716549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2670008065139716554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f84cb22b8ef467eb49d72c12fb0acc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2670008065139716548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2670008065139716554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f990e757f6459c8138a158fdff26ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8837476730266156572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,25 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01160e55121f4beb8208d9281686abec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionZone: {fileID: -5027511345599149978}
+  _interactionZone: {fileID: 8607176006013604103}
   _spawnPoint: {fileID: 4892515270333536585}
   _startRabbitsCount: 2
---- !u!114 &-5027511345599149978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2670008065139716554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c37d1faf504b318f0ff970490c19ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currencyName: Coin
-  _interactionCost: 60
-  _coinsPerTick: 1
-  _tickDuration: 0.02
 --- !u!1 &3988982107310403550
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +82,185 @@ Transform:
   m_Father: {fileID: 2670008065139716551}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &4467322222989139789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3289635351824422720}
+  - component: {fileID: 5438769684818666045}
+  - component: {fileID: 6729407005183819197}
+  - component: {fileID: 8449386216135044384}
+  - component: {fileID: 407361236868049420}
+  m_Layer: 8
+  m_Name: ItemAttractor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3289635351824422720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467322222989139789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2670008065139716551}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5438769684818666045
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467322222989139789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6729407005183819197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467322222989139789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2cc0359b11412fbfc54b23748a0a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8449386216135044384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467322222989139789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99efdcd3e234477c849011d3003ed031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attractName: MoneyAttracted
+  _attractDistance: 1.5
+  _attractCollider: {fileID: 5438769684818666045}
+--- !u!54 &407361236868049420
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467322222989139789}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!1 &5314204100187072169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5072731326586065626}
+  - component: {fileID: 187842229581731775}
+  - component: {fileID: 305092787928156100}
+  - component: {fileID: 8607176006013604103}
+  - component: {fileID: 5183211200593608468}
+  m_Layer: 0
+  m_Name: InteractionZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5072731326586065626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314204100187072169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2670008065139716551}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &187842229581731775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314204100187072169}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84cb22b8ef467eb49d72c12fb0acc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &305092787928156100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314204100187072169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f990e757f6459c8138a158fdff26ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8607176006013604103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314204100187072169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c37d1faf504b318f0ff970490c19ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currencyName: Coin
+  _interactionCost: 60
+  _coinsPerTick: 1
+  _tickDuration: 0.025
+--- !u!65 &5183211200593608468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314204100187072169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 0.5, z: 1.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &2670008065011281952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 8602546309449006162, guid: 41f55b2c71242514980fc9cecad24530, type: 3}
       propertyPath: _paidZone
       value: 
-      objectReference: {fileID: -5027511345599149978}
+      objectReference: {fileID: 8607176006013604103}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41f55b2c71242514980fc9cecad24530, type: 3}
 --- !u!4 &202965701822954707 stripped

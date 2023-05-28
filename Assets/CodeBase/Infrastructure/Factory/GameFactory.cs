@@ -1,6 +1,7 @@
 ﻿using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Services.StaticData;
 using CodeBase.StaticData;
+using NTC.Global.System;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.Factory
@@ -63,6 +64,20 @@ namespace CodeBase.Infrastructure.Factory
 
         public GameObject CreateRabbit(Vector3 at) =>
             _assets.Instantiate(AssetPath.RabbitPath, at);
+
+        public GameObject CreateCarrotVisual(Vector3 at, Quaternion rotation, Transform container) =>
+            CreateVisual(AssetPath.CarrotVisualPath, at, rotation, container);
+
+        public GameObject CreateMoneyVisual(Vector3 at, Quaternion rotation, Transform container) =>
+            CreateVisual(AssetPath.MoneyVisualPath, at, rotation, container);
+
+        private GameObject CreateVisual(string path, Vector3 at, Quaternion rotation, Transform container)
+        {
+            GameObject visual = _assets.Instantiate(path, at, rotation);
+            visual.transform.SetParent(container);
+            visual.gameObject.Disable();
+            return visual;
+        }
 
         // private void ConfigureCollectibles() =>
         //     _items = new Dictionary<Type, Func<Vector3, GameObject>>

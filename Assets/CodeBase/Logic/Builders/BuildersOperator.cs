@@ -29,7 +29,7 @@ namespace CodeBase.Logic.Builders
                 return;
 
             builder.gameObject.Enable();
-            _interactionPaidZone = builder.GetComponent<InteractionInventoryPaidZone>();
+            _interactionPaidZone = builder.GetComponentInChildren<InteractionInventoryPaidZone>(true);
             _interactionPaidZone.FullPaid += OnFullPaid;
         }
 

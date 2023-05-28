@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6784171706922634152
+--- !u!1 &4052035453596852048
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8792320518718693181}
-  - component: {fileID: 3722800990877509606}
-  - component: {fileID: 8186939038167195618}
-  - component: {fileID: 7283754812661024844}
-  - component: {fileID: 4754262850053339434}
-  - component: {fileID: -53727273019616233}
+  - component: {fileID: 4050425716416940074}
+  - component: {fileID: 4056907714797533764}
+  - component: {fileID: 4064924332119783954}
+  - component: {fileID: 6910087718143648519}
+  - component: {fileID: 1611598843654644185}
   m_Layer: 7
-  m_Name: MoneyPack
+  m_Name: CarrotVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8792320518718693181
+--- !u!4 &4050425716416940074
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784171706922634152}
+  m_GameObject: {fileID: 4052035453596852048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 0.3}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3722800990877509606
+--- !u!33 &4056907714797533764
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784171706922634152}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8186939038167195618
+  m_GameObject: {fileID: 4052035453596852048}
+  m_Mesh: {fileID: 4300002, guid: fbd33e75d8d4bf9479c9cb59e83a9e37, type: 3}
+--- !u!23 &4064924332119783954
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784171706922634152}
+  m_GameObject: {fileID: 4052035453596852048}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 38a200fae30bba94da765546b4f24583, type: 2}
+  - {fileID: 2100000, guid: 29a286d2dc90be241a18e462c6b29a5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,45 +85,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7283754812661024844
+--- !u!65 &6910087718143648519
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784171706922634152}
+  m_GameObject: {fileID: 4052035453596852048}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.2, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4754262850053339434
+--- !u!114 &1611598843654644185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784171706922634152}
-  m_Enabled: 1
+  m_GameObject: {fileID: 4052035453596852048}
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72dd5327ef2b444392ee8d85f652aed8, type: 3}
+  m_Script: {fileID: 11500000, guid: a5b42a3e018a4a5b98f587f28b1affa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amountMoneyInPack: 10
---- !u!114 &-53727273019616233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784171706922634152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716c9ea6e16d456d8deed3d7338d0ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attractSpeed: 10
+  _attractSpeed: 7
   _sizeCurve:
     serializedVersion: 2
     m_Curve:
@@ -149,4 +135,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _onAttractedDistance: 0.01
+  _onAttractedDistance: 0.05

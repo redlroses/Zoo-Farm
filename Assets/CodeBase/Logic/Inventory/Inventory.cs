@@ -13,7 +13,8 @@ namespace CodeBase.Logic.Inventory
 
         private int _itemsWeight;
 
-        public event Action<IReadOnlyInventoryCell> Updated = c => { };
+        public event Action<IReadOnlyInventoryCell> Replenished = c => { };
+        public event Action<IReadOnlyInventoryCell> Spend = c => { };
 
         public int Weight => _itemsWeight;
         public bool IsFull => _itemsWeight >= _maxWeight;
@@ -53,7 +54,7 @@ namespace CodeBase.Logic.Inventory
             }
 
             _itemsWeight += totalWeight;
-            Updated.Invoke(inventoryCell);
+            Replenished.Invoke(inventoryCell);
             return true;
         }
 
@@ -66,12 +67,12 @@ namespace CodeBase.Logic.Inventory
                 return false;
 
             for (int i = 0; i < amount; i++)
-                Spend(inventoryCell);
+                SpendItem(inventoryCell);
 
             return true;
         }
 
-        private void Spend(InventoryCell inventoryCell)
+        private void SpendItem(InventoryCell inventoryCell)
         {
             inventoryCell.DecreaseCount();
 
@@ -83,7 +84,7 @@ namespace CodeBase.Logic.Inventory
             if (inventoryCell.IsEmpty)
                 _storage.Remove(inventoryCell);
 
-            Updated.Invoke(inventoryCell);
+            Spend.Invoke(inventoryCell);
         }
 
         private bool IsAllowableWeight(IItem item, int amount, out int totalWeight)

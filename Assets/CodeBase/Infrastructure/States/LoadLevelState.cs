@@ -1,8 +1,10 @@
 ﻿using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic;
 using CodeBase.Logic.Builders;
+using CodeBase.Logic.Interactions;
 using CodeBase.Logic.Inventory;
 using CodeBase.Logic.Player;
+using CodeBase.Logic.Pool;
 using CodeBase.Logic.Spawners;
 using CodeBase.Services.Input;
 using CodeBase.Services.StaticData;
@@ -90,6 +92,10 @@ namespace CodeBase.Infrastructure.States
             hero.Enable();
             hero.GetComponent<Hero>().Construct(_playerInputService);
             hero.GetComponent<HeroMover>().Construct(_playerInputService);
+            hero.GetComponent<HeroPools>().Construct(_gameFactory);
+            HeroInventory heroInventory = hero.GetComponentInChildren<HeroInventory>();
+            heroInventory.Construct();
+            hero.GetComponentInChildren<InventoryView>().Construct(heroInventory.Inventory);
             FollowCamera(hero.transform);
             return hero;
         }
@@ -100,7 +106,6 @@ namespace CodeBase.Infrastructure.States
             hud.Enable();
             hud.GetComponent<Canvas>().worldCamera = Camera.main;
             HeroInventory heroInventory = hero.GetComponentInChildren<HeroInventory>();
-            heroInventory.Construct();
             hud.GetComponentInChildren<MoneyView>().Construct(heroInventory.Inventory);
         }
 

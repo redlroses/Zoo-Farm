@@ -1,4 +1,5 @@
 ﻿using CodeBase.Logic.Interactions;
+using NTC.Global.System;
 using UnityEngine;
 
 namespace CodeBase.UI.Elements
@@ -12,13 +13,20 @@ namespace CodeBase.UI.Elements
         private void OnEnable()
         {
             _textSetter.SetText(_paidZone.InteractionCost);
-            _paidZone.CostChanged += PaidZoneOnCostChanged;
+            _paidZone.CostChanged += OnCostChanged;
+            _paidZone.FullPaid += OnFullPaid;
         }
 
-        private void OnDisable() =>
-            _paidZone.CostChanged -= PaidZoneOnCostChanged;
+        private void OnFullPaid() =>
+            gameObject.Disable();
 
-        private void PaidZoneOnCostChanged(int cost) =>
+        private void OnDisable()
+        {
+            _paidZone.CostChanged -= OnCostChanged;
+            _paidZone.FullPaid -= OnFullPaid;
+        }
+
+        private void OnCostChanged(int cost) =>
             _textSetter.SetTextAnimated(cost);
     }
 }

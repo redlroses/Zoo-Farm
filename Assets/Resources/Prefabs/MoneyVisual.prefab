@@ -12,15 +12,14 @@ GameObject:
   - component: {fileID: 3722800990877509606}
   - component: {fileID: 8186939038167195618}
   - component: {fileID: 7283754812661024844}
-  - component: {fileID: 4754262850053339434}
-  - component: {fileID: -53727273019616233}
+  - component: {fileID: -2501711389448931563}
   m_Layer: 7
-  m_Name: MoneyPack
+  m_Name: MoneyVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8792320518718693181
 Transform:
   m_ObjectHideFlags: 0
@@ -99,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4754262850053339434
+--- !u!114 &-2501711389448931563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,20 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6784171706922634152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72dd5327ef2b444392ee8d85f652aed8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _amountMoneyInPack: 10
---- !u!114 &-53727273019616233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784171706922634152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716c9ea6e16d456d8deed3d7338d0ca6, type: 3}
+  m_Script: {fileID: 11500000, guid: 724a538f743a4907a0b5d9bf2a4bbbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _attractSpeed: 10
@@ -149,4 +135,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _onAttractedDistance: 0.01
+  _onAttractedDistance: 0.05

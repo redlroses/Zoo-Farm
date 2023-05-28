@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 352260188}
   - component: {fileID: 352260187}
   - component: {fileID: 352260186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ItemAttractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99efdcd3e234477c849011d3003ed031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attractName: MoneyPackAttracted
   _attractDistance: 3.58
   _attractCollider: {fileID: 352260187}
 --- !u!1 &3937325576604792355
@@ -86,6 +87,7 @@ GameObject:
   - component: {fileID: 2441668043557238593}
   - component: {fileID: 2224312437402753210}
   - component: {fileID: 5290015128612831784}
+  - component: {fileID: 7896988824467496474}
   m_Layer: 0
   m_Name: ItemCollector
   m_TagString: Untagged
@@ -104,7 +106,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.707, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1732185464828503878}
   m_Father: {fileID: 7795573623055448122}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,7 +163,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroInventory: {fileID: 2441668043557238593}
-  _heroWallet: {fileID: 0}
+--- !u!114 &7896988824467496474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937325576604792355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796a25774d1f48cab44f483f4757cdd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroPools: {fileID: 4577682175938376850}
+  _onHandSpawnPlace: {fileID: 1732185464828503878}
+  _onHandOffset: 0.2
+  _onHandItemRotation: {x: 0, y: 0, z: 90}
+--- !u!1 &7120166814732322355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732185464828503878}
+  m_Layer: 0
+  m_Name: OnHandsSpawnPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1732185464828503878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120166814732322355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.12, z: 0.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6455811853376643434}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7795573623054951508
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +257,7 @@ GameObject:
   - component: {fileID: 4237115905176949765}
   - component: {fileID: 439398220}
   - component: {fileID: 5087684082760483848}
+  - component: {fileID: 4577682175938376850}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -338,6 +388,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4577682175938376850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795573623054951514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dd64eabdfc469bb6eae1718d9cd59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _preloadCount: 3
+  _container: {fileID: 0}
 --- !u!1 &7795573623054951518
 GameObject:
   m_ObjectHideFlags: 0

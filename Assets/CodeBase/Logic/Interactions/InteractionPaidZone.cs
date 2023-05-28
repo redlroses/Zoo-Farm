@@ -4,6 +4,7 @@ using System.Linq;
 using CodeBase.Logic.Items;
 using CodeBase.Logic.Observer;
 using CodeBase.Logic.Wallet;
+using CodeBase.Tools;
 using NaughtyAttributes;
 using NTC.Global.System;
 using UnityEngine;
@@ -38,17 +39,22 @@ namespace CodeBase.Logic.Interactions
             _timerOperator.SetUp(_tickDuration, OnTick);
             _interactionCostLeft = _interactionCost;
 
-            FindTypes();
-            SetChosenType();
+            SetFoundTypes();
         }
 
-        private void OnValidate()
+        private void SetFoundTypes()
         {
-            FindTypes();
-            SetChosenType();
+            TypeFinder typeFinder = new TypeFinder(typeof(IItem));
+            _currencyTypes = typeFinder.GetTypes();
+            _currencyType = typeFinder.GetTypeByName(_currencyName);
         }
+
+        private void OnValidate() =>
+            SetFoundTypes();
 
         protected abstract void SetSpendable(ref ISpend spendable, T target);
+
+        protected abstract bool TrySpend(ISpend spendable, Type itemType, int amount);
 
         protected override void OnTargetEntered(T target)
         {
@@ -58,8 +64,6 @@ namespace CodeBase.Logic.Interactions
 
         protected override void OnTargetExited(T target) =>
             _timerOperator.Pause();
-
-        protected abstract bool TrySpend(ISpend spendable, Type itemType, int amount);
 
         private void OnTick()
         {
@@ -77,11 +81,5 @@ namespace CodeBase.Logic.Interactions
                 _timerOperator.Restart();
             }
         }
-
-        private void SetChosenType() =>
-            _currencyType = _currencyTypes.Find(type => string.Equals(type.Name, _currencyName));
-
-        private void FindTypes() => _currencyTypes = typeof(IItem).Assembly.ExportedTypes
-            .Where(t => typeof(IItem).IsAssignableFrom(t) && t.IsInterface == false).ToList();
     }
 }

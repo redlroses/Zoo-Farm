@@ -10,22 +10,23 @@ namespace CodeBase.UI.Elements
 
         private IInventory _inventory;
 
-        private void OnDestroy() =>
-            _inventory.Updated -= OnInventoryUpdated;
+        private void OnDestroy()
+        {
+            _inventory.Replenished -= OnInventoryReplenished;
+            _inventory.Spend -= OnInventoryReplenished;
+        }
 
         public void Construct(IInventory inventory)
         {
             _inventory = inventory;
-            _inventory.Updated += OnInventoryUpdated;
+            _inventory.Replenished += OnInventoryReplenished;
+            _inventory.Spend += OnInventoryReplenished;
         }
 
-        private void OnInventoryUpdated(IReadOnlyInventoryCell cell)
+        private void OnInventoryReplenished(IReadOnlyInventoryCell cell)
         {
-            Debug.Log("OnInventoryUpdated");
-
             if (cell.Item is Coin)
             {
-                Debug.Log("Coin");
                 _textSetter.SetTextAnimated(cell.Count);
             }
         }
