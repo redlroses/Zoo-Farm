@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using NaughtyAttributes;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 namespace CodeBase.UI.Elements
 {
@@ -10,6 +8,8 @@ namespace CodeBase.UI.Elements
     {
         [SerializeField] private AnimationCurve _curveAnimation;
         [SerializeField] private float _duration;
+
+        private string _staticText;
 
 #if UNITY_EDITOR
         [SerializeField] private int _testNumber;
@@ -32,11 +32,13 @@ namespace CodeBase.UI.Elements
                 enabled = false;
             }
 
-            SetText(GetAnimatedNumberByTime(_elapsedTime));
+            float animatedNumber = GetAnimatedNumberByTime(_elapsedTime);
+            SetText(animatedNumber + _staticText);
         }
 
-        public void SetTextAnimated(int number)
+        public void SetTextAnimated(int number, string staticText = "")
         {
+            _staticText = staticText;
             _prevNumber = _targetNumber;
             _targetNumber = number;
             _elapsedTime = 0;

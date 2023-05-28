@@ -3,7 +3,7 @@
 namespace CodeBase.Logic.Observer
 {
     [RequireComponent(typeof(TriggerObserverExit))]
-    public abstract class ObserverTargetExit<TTarget, TObserver> : ObserverTarget<TTarget, TObserver> where TObserver : ITriggerObserverExitCommon
+    public abstract class ObserverTargetExit<TTarget, TObserver> : ObserverTarget<TTarget, TObserver> where TObserver : ITriggerObserverExit
     {
         protected override void OnEnabled()
         {

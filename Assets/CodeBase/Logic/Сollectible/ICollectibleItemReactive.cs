@@ -2,7 +2,7 @@
 
 namespace CodeBase.Logic.Сollectible
 {
-    public interface ICollectibleReactive : ICollectible
+    public interface ICollectibleItemReactive : ICollectibleItem
     {
         event Action Collected;
     }

@@ -61,7 +61,6 @@ namespace CodeBase.Logic.Interactions
         private GameObject CreatePooled(IReadOnlyInventoryCell cell)
         {
             IAttractable itemObject = _heroPools.Get(cell.Item);
-            itemObject.WasAttracted += () => _heroPools.Return(itemObject, cell.Item);
             itemObject.GameObject.transform.position = _selfTransform.position;
             return itemObject.GameObject;
         }

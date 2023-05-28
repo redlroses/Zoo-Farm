@@ -2,9 +2,9 @@
 
 namespace CodeBase.Logic.Сollectible
 {
-    public class ItemCollector : ObserverTarget<ICollectible, TriggerObserver>
+    public class ItemCollector : ObserverTarget<ICollectibleItem, TriggerObserver>
     {
-        protected override void OnTargetEntered(ICollectible collectible) =>
-            collectible.Collect();
+        protected override void OnTargetEntered(ICollectibleItem collectibleItem) =>
+            collectibleItem.Collect();
     }
 }

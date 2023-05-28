@@ -6,7 +6,6 @@ namespace CodeBase.UI.Elements
 {
     public class SelectionZoneView : MonoBehaviour
     {
-        [SerializeField] private GameObject _arrow;
         [SerializeField] private TextSetterAnimated _textSetter;
         [SerializeField] private InteractionInventoryPaidZone _paidZone;
 

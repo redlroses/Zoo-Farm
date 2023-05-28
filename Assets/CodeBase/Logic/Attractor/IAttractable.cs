@@ -7,6 +7,6 @@ namespace CodeBase.Logic.Attractor
     {
         void Attract(Transform to);
         GameObject GameObject { get; }
-        event Action WasAttracted;
+        event Action<IAttractable> WasAttracted;
     }
 }

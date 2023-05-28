@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Сollectible
 {
-    public class CarrotFruit : MonoBehaviour, ICollectibleReactive
+    public class CarrotFruit : MonoBehaviour, ICollectibleItemReactive
     {
         [SerializeField] private int _weight;
         [SerializeField] private int _count;

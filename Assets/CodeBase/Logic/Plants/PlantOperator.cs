@@ -30,7 +30,7 @@ namespace CodeBase.Logic.Plants
             _plant.Tick(Time.deltaTime);
 
         private void Subscribe() =>
-            _fruit.GetComponent<ICollectibleReactive>().Collected += OnCollected;
+            _fruit.GetComponent<ICollectibleItemReactive>().Collected += OnCollected;
 
         private void OnCollected() =>
             PlantNewPlant();

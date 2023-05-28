@@ -7,10 +7,7 @@ namespace CodeBase.Logic.Rabbit.States
     {
         [SerializeField] private RabbitAnimator _animator;
 
-        protected override void OnEnabled()
-        {
+        protected override void OnEnabled() =>
             _animator.SetIdle();
-            Debug.Log("Enter IdleState");
-        }
     }
 }

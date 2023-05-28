@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Сollectible
 {
-    public class MoneyPack : MonoBehaviour, ICollectible
+    public class MoneyPack : MonoBehaviour, ICollectibleItem
     {
         [SerializeField] private int _amountMoneyInPack;
 

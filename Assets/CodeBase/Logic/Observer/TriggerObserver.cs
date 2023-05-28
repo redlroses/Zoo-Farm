@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Observer
 {
-    public class TriggerObserver : MonoBehaviour, ITriggerObserverCommon
+    public class TriggerObserver : MonoBehaviour, ITriggerObserver
     {
         public event Action<Collider> Entered = c => { };
 

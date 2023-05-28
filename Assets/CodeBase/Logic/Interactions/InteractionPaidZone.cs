@@ -8,6 +8,7 @@ using CodeBase.Tools;
 using NaughtyAttributes;
 using NTC.Global.System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CodeBase.Logic.Interactions
 {
@@ -16,7 +17,7 @@ namespace CodeBase.Logic.Interactions
     {
         [Dropdown("CurrencyNames")] [field: SerializeField] private string _currencyName;
         [SerializeField] private int _interactionCost = 60;
-        [SerializeField] private int _coinsPerTick = 1;
+        [FormerlySerializedAs("_coinsPerTick")] [SerializeField] private int _currencyPerTick = 1;
         [SerializeField] private float _tickDuration = 0.1f;
 
         private int _interactionCostLeft;
@@ -74,9 +75,9 @@ namespace CodeBase.Logic.Interactions
                 return;
             }
 
-            if (TrySpend(_spendable, _currencyType, _coinsPerTick))
+            if (TrySpend(_spendable, _currencyType, _currencyPerTick))
             {
-                _interactionCostLeft -= _coinsPerTick;
+                _interactionCostLeft -= _currencyPerTick;
                 CostChanged.Invoke(_interactionCostLeft);
                 _timerOperator.Restart();
             }

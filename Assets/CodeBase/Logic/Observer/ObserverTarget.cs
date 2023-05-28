@@ -4,7 +4,7 @@ using UnityEngine;
 namespace CodeBase.Logic.Observer
 {
     [RequireComponent(typeof(TriggerObserver))]
-    public abstract class ObserverTarget<TTarget, TObserver> : MonoCache where TObserver : ITriggerObserverCommon
+    public abstract class ObserverTarget<TTarget, TObserver> : MonoCache where TObserver : ITriggerObserver
     {
         protected TObserver Observer;
 

@@ -32,6 +32,7 @@ namespace CodeBase.Logic.Attractor
         {
             if (Application.isEditor)
             {
+                _attractCollider ??= GetComponent<SphereCollider>();
                 SetFoundTypes();
                 SetAttractDistance(_attractDistance);
             }

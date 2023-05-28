@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Observer
 {
-    public class TriggerObserverExit : TriggerObserver, ITriggerObserverExitCommon
+    public class TriggerObserverExit : TriggerObserver, ITriggerObserverExit
     {
         public event Action<Collider> Exited = c => { };
 

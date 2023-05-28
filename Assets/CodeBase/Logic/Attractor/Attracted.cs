@@ -1,5 +1,6 @@
 ﻿using System;
 using NTC.Global.Cache;
+using NTC.Global.System;
 using UnityEngine;
 
 namespace CodeBase.Logic.Attractor
@@ -16,7 +17,7 @@ namespace CodeBase.Logic.Attractor
         private Vector3 _startScale;
         private Vector3 _defaultScale;
 
-        public event Action WasAttracted = () => { };
+        public event Action<IAttractable> WasAttracted = c => { };
 
         public GameObject GameObject => gameObject;
 
@@ -27,6 +28,9 @@ namespace CodeBase.Logic.Attractor
             _toTransform = _selfTransform;
             _defaultScale = _selfTransform.lossyScale;
         }
+
+        protected override void OnDisabled() =>
+            WasAttracted.Invoke(this);
 
         public void Attract(Transform to)
         {
@@ -40,13 +44,15 @@ namespace CodeBase.Logic.Attractor
         {
             Vector3 toTargetVector = _toTransform.position - _selfTransform.position;
             float distance = toTargetVector.magnitude;
-            _selfTransform.Translate(toTargetVector.normalized * (_attractSpeed * Time.deltaTime));
+            _selfTransform.Translate(toTargetVector.normalized * (_attractSpeed * Time.deltaTime), Space.World);
             ScaleSize(distance);
 
             if (distance <= _onAttractedDistance)
             {
                 OnAttracted();
-                WasAttracted?.Invoke();
+                enabled = false;
+                gameObject.Disable();
+                _selfTransform.localScale = _startScale;
             }
         }
 

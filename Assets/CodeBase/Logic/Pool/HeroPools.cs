@@ -26,21 +26,46 @@ namespace CodeBase.Logic.Pool
             _pools = new Dictionary<Type, Pool<IAttractable>>
             {
                 [typeof(Items.Carrot)] = new Pool<IAttractable>(
-                    () => gameFactory
-                        .CreateCarrotVisual(_selfTransform.position, Quaternion.identity, _container)
-                        .GetComponent<IAttractable>(),
-                    obj => obj.GameObject.Enable(),
-                    obj => obj.GameObject.Disable(),
+                    () =>
+                    {
+                        GameObject gameobject = gameFactory.CreateCarrotVisual(_selfTransform.position, Quaternion.identity, _container);
+                        IAttractable attractable = gameobject.GetComponent<IAttractable>();
+                        return attractable;
+                    },
+                    obj =>
+                    {
+                        obj.WasAttracted += OnWasCarrotAttracted;
+                        obj.GameObject.Enable();
+                    },
+                    obj =>
+                    {
+                        obj.GameObject.Disable();
+                        obj.WasAttracted -= OnWasCarrotAttracted;
+                    },
                     _preloadCount),
                 [typeof(Items.Coin)] = new Pool<IAttractable>(
                     () => gameFactory
                         .CreateMoneyVisual(_selfTransform.position, Quaternion.identity, _container)
                         .GetComponent<IAttractable>(),
-                    obj => obj.GameObject.Enable(),
-                    obj => obj.GameObject.Disable(),
+                    obj =>
+                    {
+                        obj.WasAttracted += OnWasMoneyAttracted;
+                        obj.GameObject.Enable();
+                    },
+                    obj =>
+                    {
+                        obj.GameObject.Disable();
+                        obj.WasAttracted -= OnWasMoneyAttracted;
+                    },
                     _preloadCount),
             };
         }
+
+        private void OnWasCarrotAttracted(IAttractable attractable) =>
+            Return(attractable, new Items.Carrot());
+
+        private void OnWasMoneyAttracted(IAttractable attractable) =>
+            Return(attractable, new Coin());
 
         public IAttractable Get<TItem>(TItem item) where TItem : IItem =>
             _pools[item.GetType()].Get();
