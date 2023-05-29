@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CarrotFieldLocation
   m_EditorClassIdentifier: 
   Key: 3
-  Position: {x: 42.43, y: 0, z: 44.96}
+  Position: {x: 38.92, y: 0.38, z: 55.11}
   Rotation: {x: 0, y: 0, z: 0, w: 1}

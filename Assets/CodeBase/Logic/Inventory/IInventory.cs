@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using CodeBase.Logic.Items;
-using CodeBase.Logic.Wallet;
 
 namespace CodeBase.Logic.Inventory
 {

@@ -1,6 +1,6 @@
 ﻿using System;
+using CodeBase.Logic.Inventory;
 using CodeBase.Logic.Player;
-using CodeBase.Logic.Wallet;
 
 namespace CodeBase.Logic.Interactions
 {

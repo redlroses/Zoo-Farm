@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1925769768256264467
 Transform:
@@ -117,7 +117,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6555252859112204918
 Transform:
@@ -160,8 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxLevel: 4
   _currentLevel: 0
-  _fastingRate: 3
-  _hungerPerTick: 1
+  _fastingRate: 6
+  _hungerPerTick: 2
 --- !u!1 &2872401604898443840
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &2872401604898443841
 RectTransform:
@@ -254,7 +254,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &2872401604944038895
 RectTransform:
@@ -328,7 +328,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2872401605579394291
 Transform:
@@ -363,12 +363,14 @@ GameObject:
   - component: {fileID: 2872401606551685410}
   - component: {fileID: 2872401606551680733}
   - component: {fileID: 2872401606551685408}
+  - component: {fileID: 7002622979175883549}
+  - component: {fileID: 6670554673883577043}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &2872401606551680732
 RectTransform:
@@ -467,6 +469,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 2872401606551685411}
+--- !u!114 &7002622979175883549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872401606551680735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f5b64341b34a6ba1d10fa1961e94b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _disableDelay: 0
+  _satiety: {fileID: 4675542792184748956}
+  _textSetter: {fileID: 1079413667158614605}
+--- !u!114 &6670554673883577043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872401606551680735}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84cb22b8ef467eb49d72c12fb0acc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2872401606847151620
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +513,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &2872401606847151621
 RectTransform:
@@ -631,18 +660,16 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.74410385
+      outSlope: 0.74410385
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.041204453
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 1
-  _staticText: /4
-  _testNumber: 0
 --- !u!1 &3686280299859852906
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +687,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2623339990440339013
 Transform:
@@ -727,12 +754,12 @@ GameObject:
   - component: {fileID: 8877069018770731003}
   - component: {fileID: 5643208840196964089}
   - component: {fileID: 9184705143058727688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ItemAttractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2705440854133057014
 Transform:
@@ -757,7 +784,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5352131364830678130}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 4.36
@@ -786,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99efdcd3e234477c849011d3003ed031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attractName: Attracted
+  _attractName: CarrotAttracted
   _attractDistance: 4.36
   _attractCollider: {fileID: 8877069018770731003}
 --- !u!1 &8686918444557726359
@@ -807,7 +834,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3234237061669444350
 Transform:
@@ -817,7 +844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8686918444557726359}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.175, y: -1.961, z: 3.17}
+  m_LocalPosition: {x: 0.175, y: -2.242, z: 3.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -862,7 +889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currencyName: Carrot
-  _interactionCost: 4
+  _interactionCost: 2147483647
   _currencyPerTick: 1
   _tickDuration: 0.5
 --- !u!65 &5956283733396413667

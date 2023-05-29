@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RabbitFieldBuilderLocation
   m_EditorClassIdentifier: 
   Key: 2
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0, w: 0}
+  Position: {x: 46.05, y: 0.25, z: 51.44}
+  Rotation: {x: 0, y: 0, z: 0, w: 1}

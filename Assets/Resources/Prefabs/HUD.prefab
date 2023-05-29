@@ -188,10 +188,10 @@ RectTransform:
   m_Father: {fileID: 9167647129460463229}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.73656684, y: 0.13377373}
-  m_AnchorMax: {x: 0.73656684, y: 0.13377373}
-  m_AnchoredPosition: {x: 1.1900024, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0.7046089, y: 0.23763031}
+  m_AnchorMax: {x: 0.7046089, y: 0.23763031}
+  m_AnchoredPosition: {x: -2, y: -3}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2035128920101637257
 CanvasRenderer:
@@ -442,7 +442,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3015666577983982985
 MonoBehaviour:
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementRange: 100
+  m_MovementRange: 200
   m_ControlPath: <Gamepad>/leftStick
 --- !u!222 &6139201137579328644
 CanvasRenderer:

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MoneySpawnerLocation
   m_EditorClassIdentifier: 
   Key: 1
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0, w: 0}
+  Position: {x: 42.04, y: 0.5, z: 50.12}
+  Rotation: {x: 0, y: 0, z: 0, w: 1}

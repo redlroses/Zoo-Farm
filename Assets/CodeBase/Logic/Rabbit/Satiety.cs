@@ -28,7 +28,7 @@ namespace CodeBase.Logic.Rabbit
             }
         }
 
-        public object MaxLevel => _maxLevel;
+        public int MaxLevel => _maxLevel;
 
         private void Awake()
         {

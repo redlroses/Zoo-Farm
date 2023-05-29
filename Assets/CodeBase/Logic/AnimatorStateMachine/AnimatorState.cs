@@ -5,11 +5,5 @@
     Unknown,
     Idle,
     Run,
-    Jump,
-    Fall,
-    Land,
-    Hit,
-    Died,
-    Dodge,
   }
 }

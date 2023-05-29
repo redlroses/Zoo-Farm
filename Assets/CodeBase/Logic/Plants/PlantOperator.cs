@@ -55,7 +55,6 @@ namespace CodeBase.Logic.Plants
             switch (state)
             {
                 case GrowthState.Sprout:
-                    Debug.Log("sproud");
                     break;
                 case GrowthState.Ready:
                     FinishGrowth();
