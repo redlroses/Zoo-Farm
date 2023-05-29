@@ -79,9 +79,9 @@ namespace CodeBase.Infrastructure.States
 
         private void InitMoneySpawner()
         {
-            GameObject moneySpawnerobject =
+            GameObject moneySpawnerObject =
                 _gameFactory.CreateMoneySpawner(_staticDataService.LocationFor(LocationKey.MoneySpawner));
-            var moneySpawner = moneySpawnerobject.GetComponent<MoneySpawner>();
+            var moneySpawner = moneySpawnerObject.GetComponent<MoneySpawner>();
             moneySpawner.Construct(_gameFactory);
             moneySpawner.Spawn();
         }
@@ -110,6 +110,6 @@ namespace CodeBase.Infrastructure.States
         }
 
         private void FollowCamera(Transform to) =>
-            Camera.main.GetComponentInParent<CameraFollower>().Follow(to);
+            Camera.main.GetComponentInParent<CameraFollower>()?.Follow(to);
     }
 }

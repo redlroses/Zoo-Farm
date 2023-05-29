@@ -96,10 +96,10 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""53735d43-e5ea-4664-a74d-a272f3d16480"",
-                    ""path"": ""<AndroidJoystick>/stick"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mobile"",
+                    ""groups"": ""Mobile;Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

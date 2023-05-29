@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +19,11 @@ namespace CodeBase.Infrastructure
 
         private IEnumerator LoadScene(string nextScene, Action onLoaded = null)
         {
+            if (nextScene == SceneManager.GetActiveScene().name)
+            {
+                onLoaded?.Invoke();
+            }
+
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextScene);
 
             while (!waitNextScene.isDone)

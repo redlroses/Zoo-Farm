@@ -8,11 +8,11 @@ namespace CodeBase.Infrastructure
 
         private void Awake()
         {
-            if (Application.isEditor == false)
-            {
-                Instantiate(_bootstrapperPrefab);
-                return;
-            }
+            // if (Application.isEditor == false)
+            // {
+            //     Instantiate(_bootstrapperPrefab);
+            //     return;
+            // }
 
             var bootstrapper = FindObjectOfType<GameBootstrapper>();
 

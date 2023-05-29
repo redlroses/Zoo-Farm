@@ -405,7 +405,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.7
-  _testNumber: 100
 --- !u!1 &3392552860160387509
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementRange: 100
-  m_ControlPath: <AndroidJoystick>/stick
+  m_ControlPath: <Gamepad>/leftStick
 --- !u!222 &6139201137579328644
 CanvasRenderer:
   m_ObjectHideFlags: 0
