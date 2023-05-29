@@ -42,7 +42,7 @@ namespace CodeBase.Logic.Rabbit
 
             if (newCurrentLevel < 0)
             {
-                _currentLevel = 0;
+                CurrentLevel = 0;
                 return;
             }
 
@@ -55,13 +55,16 @@ namespace CodeBase.Logic.Rabbit
             if (amount <= 0)
                 throw new ArgumentException("Replenish amount cannot be negative");
 
-            CurrentLevel += amount;
+            int newCurrentLevel = CurrentLevel + amount;
 
-            if (CurrentLevel >= _maxLevel)
+            if (newCurrentLevel >= _maxLevel)
             {
                 CurrentLevel = _maxLevel;
-                _timer.Play();
+                _timer.Restart();
+                return;
             }
+
+            CurrentLevel = newCurrentLevel;
         }
     }
 }

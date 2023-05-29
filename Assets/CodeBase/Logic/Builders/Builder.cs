@@ -1,5 +1,6 @@
 ﻿using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic.Interactions;
+using NTC.Global.System;
 using UnityEngine;
 
 namespace CodeBase.Logic.Builders
@@ -20,8 +21,11 @@ namespace CodeBase.Logic.Builders
         private void OnDisable() =>
             _interactionZone.FullPaid -= OnFillPaid;
 
-        private void OnFillPaid() =>
+        private void OnFillPaid()
+        {
             Build(_gameFactory, _spawnPoint);
+            gameObject.Disable();
+        }
 
         protected abstract void Build(IGameFactory gameFactory, Transform at);
     }
