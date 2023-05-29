@@ -1,5 +1,4 @@
-﻿using System;
-using CodeBase.Logic.Rabbit.States;
+﻿using CodeBase.Logic.Rabbit.States;
 using CodeBase.MonoStateMachine;
 using UnityEngine;
 

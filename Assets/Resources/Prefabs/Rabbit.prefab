@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 95674028260086484}
-  _destinationOffset: 0.1
+  _destinationOffset: 0.25
 --- !u!1 &2393315786287746535
 GameObject:
   m_ObjectHideFlags: 0

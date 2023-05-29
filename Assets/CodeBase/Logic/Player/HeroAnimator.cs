@@ -6,10 +6,14 @@ namespace CodeBase.Logic.Player
 {
     public class HeroAnimator : MonoBehaviour, IAnimationStateReader
     {
+        private const string TopLayerName = "Top Layer";
+
         private static readonly int IsRun = Animator.StringToHash("IsRun");
 
         private readonly int _runStateHash = Animator.StringToHash("Run");
         private readonly int _idleStateHash = Animator.StringToHash("Idle");
+
+        private int _topLayerIndex;
 
         [SerializeField] private Animator _animator;
 
@@ -17,6 +21,12 @@ namespace CodeBase.Logic.Player
         public event Action<AnimatorState> StateExited;
 
         public AnimatorState State { get; private set; }
+
+        private void Awake() =>
+            _topLayerIndex = _animator.GetLayerIndex(TopLayerName);
+
+        public void SetHold(bool isHold) =>
+            _animator.SetLayerWeight(_topLayerIndex, Convert.ToInt32(isHold));
 
         public void SetRun(bool isRun) =>
             _animator.SetBool(IsRun, isRun);

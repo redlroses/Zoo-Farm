@@ -1,3 +1,4 @@
+using CodeBase.Tools.Extension;
 using UnityEngine;
 using NTC.Global.Cache;
 namespace CodeBase.Logic.Movement
@@ -30,7 +31,8 @@ namespace CodeBase.Logic.Movement
         private void Move()
         {
             Vector3 moveDirection = GetMoveDirection();
-            _rigidbody.velocity = moveDirection * _speed;
+            Vector3 velocity = moveDirection * _speed;
+            _rigidbody.velocity = velocity.ChangeY(_rigidbody.velocity.y);
         }
 
         private void Rotate()

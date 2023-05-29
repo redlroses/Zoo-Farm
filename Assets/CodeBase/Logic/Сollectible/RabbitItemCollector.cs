@@ -8,10 +8,7 @@ namespace CodeBase.Logic.Сollectible
     {
         [SerializeField] private Satiety _satiety;
 
-        protected override void OnTargetEntered(ICollectible collectibleItem)
-        {
-            Debug.Log("enter");
+        protected override void OnTargetEntered(ICollectible collectibleItem) =>
             _satiety.Replenish(1);
-        }
     }
 }

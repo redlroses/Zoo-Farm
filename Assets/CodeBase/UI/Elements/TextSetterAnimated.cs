@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using NaughtyAttributes;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CodeBase.UI.Elements
 {
@@ -10,10 +8,6 @@ namespace CodeBase.UI.Elements
         [SerializeField] private float _duration;
 
         private string _staticText;
-
-#if UNITY_EDITOR
-        [SerializeField] private int _testNumber;
-#endif
 
         private float _elapsedTime;
         private int _targetNumber;
@@ -50,13 +44,6 @@ namespace CodeBase.UI.Elements
             int difference = _targetNumber - _prevNumber;
             float animatedNumber = _curveAnimation.Evaluate(time / _duration);
             return _prevNumber + Mathf.RoundToInt(animatedNumber * difference);
-        }
-
-        [Conditional("UNITY_EDITOR")]
-        [Button("Set Test Text")]
-        private void SetTextNumber()
-        {
-            SetTextAnimated(_testNumber);
         }
     }
 }

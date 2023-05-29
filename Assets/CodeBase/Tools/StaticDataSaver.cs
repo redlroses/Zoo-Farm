@@ -2,7 +2,6 @@
 using CodeBase.StaticData;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
 namespace CodeBase.Tools
@@ -11,13 +10,15 @@ namespace CodeBase.Tools
     {
         [SerializeField] private LocationStaticData _location;
 
+        private void Awake() =>
+            Save();
+
         [Button("Save")]
         [Conditional("UNITY_EDITOR")]
         private void Save()
         {
             _location.Position = transform.position;
             _location.Rotation = transform.rotation;
-            Debug.Log("Position saved");
         }
     }
 }

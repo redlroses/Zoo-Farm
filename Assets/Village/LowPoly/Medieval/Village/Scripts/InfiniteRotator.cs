@@ -1,27 +1,19 @@
-﻿﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InfiniteRotator : MonoBehaviour
 {
     public Transform transformToRotate;
-    [Range(1f,100f)]
-    public float RotationSpeed = 0.1f;
+    [Range(1f, 100f)] public float RotationSpeed = 0.1f;
     public bool RotateOnStart = true;
-    private bool isRotating = false;
+    private bool isRotating;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (RotateOnStart)
-        {
-            Debug.Log("Rotate on Start");
             StartRotating();
-        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (isRotating)
         {
@@ -30,15 +22,9 @@ public class InfiniteRotator : MonoBehaviour
         }
     }
 
-    public void StartRotating()
-    {
+    public void StartRotating() =>
         isRotating = true;
-    }
 
-    public void StopRotating()
-    {
+    public void StopRotating() =>
         isRotating = false;
-    }
-
-
 }

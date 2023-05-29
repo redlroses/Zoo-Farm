@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7c566fa24047e1b5f77b84c19f9c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroAnimator: {fileID: 7795573623055448100}
   _maxWeight: 4
 --- !u!114 &2224312437402753210
 MonoBehaviour:
@@ -264,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7795573623055448122
 Transform:
   m_ObjectHideFlags: 0
